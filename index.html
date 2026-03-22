@@ -563,7 +563,7 @@
       <p class="preco-de">De R$97</p>
       <p class="preco-por">R$37</p>
       <p class="preco-nota">pagamento único · sem assinatura</p>
-      <a href="#" class="btn-primary" style="font-size:17px; padding:20px 56px;">Quero me libertar agora</a>
+      <a href="https://pay.kiwify.com.br/AgYdMLv" class="btn-primary" style="font-size:17px; padding:20px 56px;">Quero me libertar agora</a>
       <div class="garantia">
         🛡️ <strong>Garantia de 7 dias.</strong> Se você ler e sentir que não valeu, devolvo cada centavo. Sem perguntas.
       </div>
@@ -580,7 +580,7 @@
 <!-- STICKY BAR -->
 <div class="sticky-bar" id="stickyBar">
   <span class="sticky-text">Você não era louca.</span>
-  <a href="#oferta" class="btn-sticky">Quero o livro — R$37</a>
+  <a href="https://pay.kiwify.com.br/AgYdMLv" class="btn-sticky">Quero o livro — R$37</a>
 </div>
 
 <script>
@@ -590,12 +590,7 @@
     else sticky.classList.remove('visible');
   });
 
-  document.querySelectorAll('a[href="#oferta"]').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      document.getElementById('oferta').scrollIntoView({ behavior: 'smooth' });
-    });
-  });
+  // oferta links now go to Kiwify
 </script>
 </body>
 </html>
