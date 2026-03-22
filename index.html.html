@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Você Não Era Louca — O livro que ninguém te deu quando você mais precisava</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --vinho: #5C1522;
+    --vinho-claro: #8B2438;
+    --rose: #C4738A;
+    --rose-claro: #E8A8B8;
+    --creme: #FDF6F0;
+    --creme-escuro: #F2E4D8;
+    --cinza: #3A2A2E;
+    --cinza-medio: #6B5560;
+    --branco: #FFFFFF;
+    --rosa-palido: #FBF0F3;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--creme);
+    color: var(--cinza);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--vinho);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 24px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 30%, #8B2438 0%, #5C1522 50%, #3A0F18 100%);
+  }
+
+  .hero-ornament {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(196,115,138,0.25);
+    animation: pulse-ring 4s ease-in-out infinite;
+  }
+  .hero-ornament:nth-child(1) { width: 500px; height: 500px; top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: 0s; }
+  .hero-ornament:nth-child(2) { width: 380px; height: 380px; top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: 0.8s; }
+  .hero-ornament:nth-child(3) { width: 260px; height: 260px; top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: 1.6s; }
+
+  @keyframes pulse-ring {
+    0%, 100% { opacity: 0.2; transform: translate(-50%,-50%) scale(1); }
+    50% { opacity: 0.5; transform: translate(-50%,-50%) scale(1.04); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 760px;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rose-claro);
+    border: 1px solid rgba(196,115,138,0.4);
+    padding: 6px 18px;
+    border-radius: 40px;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 7vw, 78px);
+    font-weight: 900;
+    color: var(--branco);
+    line-height: 1.05;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--rose-claro);
+  }
+
+  .hero-sub {
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 300;
+    color: rgba(253,246,240,0.75);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-cta {
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--rose) 0%, #A85070 100%);
+    color: var(--branco);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 18px 48px;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 32px rgba(92,21,34,0.5);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(92,21,34,0.6);
+  }
+
+  .hero-price {
+    display: block;
+    margin-top: 16px;
+    font-size: 14px;
+    color: rgba(253,246,240,0.55);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 96px 24px; }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .container-wide {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  /* ── IDENTIFICAÇÃO ── */
+  .identificacao {
+    background: var(--branco);
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 16px;
+  }
+
+  .section-titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    color: var(--vinho);
+    line-height: 1.2;
+    margin-bottom: 32px;
+  }
+
+  .perguntas-lista {
+    list-style: none;
+    margin-bottom: 40px;
+  }
+  .perguntas-lista li {
+    font-size: 17px;
+    line-height: 1.65;
+    padding: 14px 0 14px 32px;
+    border-bottom: 1px solid var(--creme-escuro);
+    position: relative;
+    color: var(--cinza-medio);
+  }
+  .perguntas-lista li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--rose);
+    font-weight: 700;
+  }
+  .perguntas-lista li:last-child { border-bottom: none; }
+
+  .destaque-box {
+    background: var(--rosa-palido);
+    border-left: 3px solid var(--vinho);
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+  .destaque-box p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-style: italic;
+    color: var(--vinho);
+    line-height: 1.5;
+  }
+
+  /* ── AGITAÇÃO ── */
+  .agitacao {
+    background: var(--vinho);
+    position: relative;
+    overflow: hidden;
+  }
+  .agitacao::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(196,115,138,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .agitacao .section-titulo { color: var(--branco); }
+  .agitacao p {
+    color: rgba(253,246,240,0.8);
+    font-size: 17px;
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+  .agitacao strong { color: var(--rose-claro); }
+
+  /* ── O QUE VOCÊ VAI DESCOBRIR ── */
+  .descobrir {
+    background: var(--creme);
+  }
+
+  .lista-beneficios {
+    list-style: none;
+    margin-top: 40px;
+  }
+  .lista-beneficios li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--creme-escuro);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--cinza-medio);
+  }
+  .lista-beneficios li:last-child { border-bottom: none; }
+  .check {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: var(--vinho);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .check::after {
+    content: '✓';
+    color: var(--branco);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* ── DEPOIMENTOS ── */
+  .depoimentos {
+    background: var(--branco);
+  }
+
+  .depo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .depo-card {
+    background: var(--rosa-palido);
+    border: 1px solid rgba(196,115,138,0.2);
+    padding: 28px;
+    border-radius: 2px;
+    position: relative;
+  }
+  .depo-card::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    color: var(--rose-claro);
+    position: absolute;
+    top: 8px; left: 20px;
+    line-height: 1;
+    opacity: 0.5;
+  }
+  .depo-texto {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--cinza-medio);
+    margin-top: 24px;
+    margin-bottom: 20px;
+  }
+  .depo-autor {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--vinho);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── OFERTA ── */
+  .oferta {
+    background: var(--creme);
+  }
+
+  .oferta-box {
+    background: var(--branco);
+    border: 1px solid rgba(196,115,138,0.25);
+    padding: 56px 48px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 24px 80px rgba(92,21,34,0.08);
+  }
+
+  .preco-de {
+    font-size: 16px;
+    color: var(--cinza-medio);
+    text-decoration: line-through;
+    margin-bottom: 8px;
+  }
+
+  .preco-por {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 8vw, 80px);
+    font-weight: 900;
+    color: var(--vinho);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .preco-nota {
+    font-size: 14px;
+    color: var(--cinza-medio);
+    margin-bottom: 40px;
+  }
+
+  .oferta-itens {
+    list-style: none;
+    text-align: left;
+    margin: 0 auto 40px;
+    max-width: 380px;
+  }
+  .oferta-itens li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 15px;
+    color: var(--cinza-medio);
+    border-bottom: 1px solid var(--creme-escuro);
+  }
+  .oferta-itens li:last-child { border-bottom: none; }
+  .oferta-itens li span:first-child { color: var(--rose); font-weight: 700; }
+
+  .garantia {
+    margin-top: 32px;
+    padding: 20px 24px;
+    background: #F0F7F1;
+    border: 1px solid #C8E6CC;
+    border-radius: 2px;
+    font-size: 14px;
+    color: #2E5E38;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--vinho);
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 13px;
+    color: rgba(253,246,240,0.4);
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0;
+  }
+  .divider-line { flex: 1; height: 1px; background: var(--creme-escuro); }
+  .divider-dot { width: 6px; height: 6px; background: var(--rose); border-radius: 50%; }
+
+  /* ── STICKY CTA ── */
+  .sticky-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--vinho);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    z-index: 100;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    box-shadow: 0 -8px 32px rgba(0,0,0,0.2);
+  }
+  .sticky-bar.visible { transform: translateY(0); }
+  .sticky-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: rgba(253,246,240,0.8);
+  }
+  .btn-sticky {
+    background: var(--rose);
+    color: var(--branco);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .btn-sticky:hover { background: var(--rose-claro); }
+
+  @media (max-width: 600px) {
+    section { padding: 64px 20px; }
+    .oferta-box { padding: 36px 24px; }
+    .sticky-text { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-ornament"></div>
+  <div class="hero-ornament"></div>
+  <div class="hero-ornament"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Ebook Digital · Acesso Imediato</span>
+    <h1>Você Não Era <em>Louca.</em></h1>
+    <p class="hero-sub">Você foi manipulada por alguém que sabia exatamente o que estava fazendo. E agora, finalmente, você vai entender tudo que aconteceu.</p>
+    <div class="hero-cta">
+      <a href="#oferta" class="btn-primary">Quero me libertar agora — R$37</a>
+      <span class="hero-price">Acesso imediato · Leitura no celular, tablet ou computador</span>
+    </div>
+  </div>
+</section>
+
+<!-- IDENTIFICAÇÃO -->
+<section class="identificacao">
+  <div class="container">
+    <p class="section-eyebrow">Você se reconhece aqui?</p>
+    <h2 class="section-titulo">Se você já viveu alguma dessas situações, esse livro foi escrito pra você.</h2>
+    <ul class="perguntas-lista">
+      <li>Você ficou repassando discussões na cabeça tentando entender onde errou</li>
+      <li>Você andava na ponta dos pés dentro da sua própria casa com medo de provocar a raiva dele</li>
+      <li>Você ouviu <em>"você é muito sensível"</em> tantas vezes que começou a acreditar</li>
+      <li>Você saía de brigas pedindo desculpa sem entender exatamente como tinha acontecido</li>
+      <li>Você sentiu que estava desaparecendo dentro do relacionamento</li>
+      <li>Você ainda se pergunta se o problema era você</li>
+    </ul>
+    <div class="destaque-box">
+      <p>"O que aconteceu com você tem nome. Tem padrão. E não foi culpa sua."</p>
+    </div>
+  </div>
+</section>
+
+<!-- AGITAÇÃO -->
+<section class="agitacao">
+  <div class="container">
+    <p class="section-eyebrow" style="color: var(--rose-claro);">O que ninguém te disse</p>
+    <h2 class="section-titulo">Você não ficou porque era fraca.<br>Você ficou porque foi condicionada.</h2>
+    <p>O que aconteceu com você não foi azar. Não foi falta de amor. Não foi fraqueza. <strong>Você foi escolhida por um narcisista.</strong> E ele sabia exatamente o que estava fazendo.</p>
+    <p>Ele te estudou. Usou seus sonhos pra te conquistar. Usou suas inseguranças pra te controlar. E usou seu amor pra te manter presa. Enquanto você tentava salvar o relacionamento — ele jogava um jogo que você não sabia que estava acontecendo.</p>
+    <p>O narcisista não escolhe qualquer pessoa. Ele escolhe mulheres empáticas, inteligentes, amorosas. <strong>Suas maiores qualidades foram usadas contra você.</strong></p>
+    <div style="margin-top: 40px; padding: 28px 32px; border: 1px solid rgba(196,115,138,0.3); border-radius: 2px;">
+      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; color: var(--rose-claro); margin: 0; line-height: 1.5;">"Você não era louca. Você foi escolhida — e isso diz muito mais sobre quem você é do que sobre quem ele é."</p>
+    </div>
+  </div>
+</section>
+
+<!-- O QUE VAI DESCOBRIR -->
+<section class="descobrir">
+  <div class="container">
+    <p class="section-eyebrow">O que você vai aprender</p>
+    <h2 class="section-titulo">Em menos de 2 horas de leitura, você vai entender tudo.</h2>
+    <ul class="lista-beneficios">
+      <li><span class="check"></span><span>Por que ele foi tão perfeito no começo — e o que aquilo realmente significava sobre as intenções dele</span></li>
+      <li><span class="check"></span><span>O que é gaslighting e como foi usado contra você de forma sistemática</span></li>
+      <li><span class="check"></span><span>Por que você ficou mesmo quando doía — a resposta neurológica que vai te surpreender</span></li>
+      <li><span class="check"></span><span>Os 9 sinais que estavam ali desde o início e que você vai reconhecer imediatamente</span></li>
+      <li><span class="check"></span><span>Por que você foi escolhida — e o que isso diz sobre suas qualidades como pessoa</span></li>
+      <li><span class="check"></span><span>Como começar a se libertar sem depender do fechamento que ele nunca vai te dar</span></li>
+      <li><span class="check"></span><span>Quem você é sem ele — e os exercícios práticos pra descobrir isso de verdade</span></li>
+    </ul>
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-dot"></div>
+      <div class="divider-line"></div>
+    </div>
+    <p style="font-size:16px; color:var(--cinza-medio); line-height:1.75; text-align:center;">O livro inclui ainda um <strong>quiz completo</strong> — "Seu ex era narcisista?" — com análise personalizada do seu resultado.</p>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos">
+  <div class="container-wide">
+    <div style="text-align:center; max-width:560px; margin:0 auto 16px;">
+      <p class="section-eyebrow">O que estão dizendo</p>
+      <h2 class="section-titulo">Mulheres que finalmente entenderam o que aconteceu com elas.</h2>
+    </div>
+    <div class="depo-grid">
+      <div class="depo-card">
+        <p class="depo-texto">Eu li de uma vez. Chorei em cada capítulo porque era exatamente o que eu vivi. Finalmente alguém colocou palavras no que eu sentia.</p>
+        <p class="depo-autor">Fernanda, 34 anos</p>
+      </div>
+      <div class="depo-card">
+        <p class="depo-texto">O capítulo 5 mudou tudo pra mim. Eu parei de me culpar depois de ler aquilo. Sempre achei que o problema era eu.</p>
+        <p class="depo-autor">Camila, 41 anos</p>
+      </div>
+      <div class="depo-card">
+        <p class="depo-texto">Comprei achando que era mais do mesmo. Não é. É diferente de tudo que já li sobre o assunto. Vale cada centavo.</p>
+        <p class="depo-autor">Juliana, 29 anos</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section class="oferta" id="oferta">
+  <div class="container">
+    <div class="oferta-box">
+      <p class="section-eyebrow">Acesso imediato</p>
+      <h2 class="section-titulo" style="margin-bottom:40px;">Você Não Era Louca</h2>
+      <ul class="oferta-itens">
+        <li><span>✔</span><span>Ebook completo — 9 capítulos</span></li>
+        <li><span>✔</span><span>Quiz exclusivo com análise personalizada</span></li>
+        <li><span>✔</span><span>Leitura no celular, tablet ou computador</span></li>
+        <li><span>✔</span><span>Acesso imediato após o pagamento</span></li>
+      </ul>
+      <p class="preco-de">De R$97</p>
+      <p class="preco-por">R$37</p>
+      <p class="preco-nota">pagamento único · sem assinatura</p>
+      <a href="#" class="btn-primary" style="font-size:17px; padding:20px 56px;">Quero me libertar agora</a>
+      <div class="garantia">
+        🛡️ <strong>Garantia de 7 dias.</strong> Se você ler e sentir que não valeu, devolvo cada centavo. Sem perguntas.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Você Não Era Louca · Todos os direitos reservados</p>
+  <p style="margin-top:8px;">Este produto é 100% digital. Após o pagamento, o acesso é liberado imediatamente.</p>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar" id="stickyBar">
+  <span class="sticky-text">Você não era louca.</span>
+  <a href="#oferta" class="btn-sticky">Quero o livro — R$37</a>
+</div>
+
+<script>
+  const sticky = document.getElementById('stickyBar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 600) sticky.classList.add('visible');
+    else sticky.classList.remove('visible');
+  });
+
+  document.querySelectorAll('a[href="#oferta"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('oferta').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>

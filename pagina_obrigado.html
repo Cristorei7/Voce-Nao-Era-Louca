@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obrigada — Você Não Era Louca</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --vinho: #5C1522;
+    --rose: #C4738A;
+    --rose-claro: #E8A8B8;
+    --creme: #FDF6F0;
+    --creme-escuro: #F2E4D8;
+    --cinza: #3A2A2E;
+    --cinza-medio: #6B5560;
+    --branco: #FFFFFF;
+    --rosa-palido: #FBF0F3;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--creme); color: var(--cinza); overflow-x: hidden; }
+
+  /* HERO OBRIGADO */
+  .hero {
+    background: var(--vinho);
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 70% at 50% 40%, #8B2438 0%, #5C1522 60%, #3A0F18 100%);
+  }
+  .ornament {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(196,115,138,0.2);
+  }
+  .ornament:nth-child(1) { width: 400px; height: 400px; top:50%; left:50%; transform:translate(-50%,-50%); }
+  .ornament:nth-child(2) { width: 280px; height: 280px; top:50%; left:50%; transform:translate(-50%,-50%); }
+
+  .hero-content { position: relative; z-index: 2; max-width: 680px; }
+
+  .checkmark {
+    width: 72px; height: 72px;
+    background: rgba(196,115,138,0.2);
+    border: 2px solid var(--rose);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 32px;
+    font-size: 28px;
+    animation: pop 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.3s both;
+  }
+  @keyframes pop {
+    from { opacity:0; transform:scale(0.5); }
+    to { opacity:1; transform:scale(1); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 900;
+    color: var(--branco);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.5s forwards;
+  }
+  .hero h1 em { font-style: italic; color: var(--rose-claro); }
+
+  .hero-sub {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(253,246,240,0.7);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.7s forwards;
+  }
+
+  .btn-acesso {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--rose) 0%, #A85070 100%);
+    color: var(--branco);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 18px 48px;
+    border-radius: 4px;
+    text-decoration: none;
+    box-shadow: 0 8px 32px rgba(92,21,34,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.9s forwards;
+  }
+  .btn-acesso:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(92,21,34,0.6); }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(20px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  /* ACESSO */
+  section { padding: 80px 24px; }
+  .container { max-width: 720px; margin: 0 auto; }
+
+  .eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--rose); margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 700; color: var(--vinho);
+    line-height: 1.2; margin-bottom: 28px;
+  }
+
+  .acesso { background: var(--branco); }
+
+  .steps { list-style: none; margin-top: 8px; }
+  .steps li {
+    display: flex; align-items: flex-start; gap: 20px;
+    padding: 20px 0; border-bottom: 1px solid var(--creme-escuro);
+    font-size: 16px; line-height: 1.6; color: var(--cinza-medio);
+  }
+  .steps li:last-child { border-bottom: none; }
+  .step-num {
+    width: 36px; height: 36px; min-width: 36px;
+    background: var(--vinho); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--branco); font-weight: 700; font-size: 14px;
+    margin-top: 2px;
+  }
+
+  /* UPSELL */
+  .upsell { background: var(--vinho); position: relative; overflow: hidden; }
+  .upsell::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(196,115,138,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .upsell .eyebrow { color: var(--rose-claro); }
+  .upsell .section-title { color: var(--branco); }
+  .upsell p { color: rgba(253,246,240,0.75); font-size: 16px; line-height: 1.75; margin-bottom: 16px; }
+  .upsell strong { color: var(--rose-claro); }
+
+  .upsell-box {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(196,115,138,0.3);
+    padding: 32px;
+    margin: 32px 0;
+  }
+
+  .upsell-lista { list-style: none; margin: 20px 0; }
+  .upsell-lista li {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 0; border-bottom: 1px solid rgba(196,115,138,0.15);
+    font-size: 15px; color: rgba(253,246,240,0.8); line-height: 1.55;
+  }
+  .upsell-lista li:last-child { border-bottom: none; }
+  .upsell-lista li span:first-child { color: var(--rose-claro); }
+
+  .preco-upsell { text-align: center; margin: 24px 0; }
+  .preco-upsell .de { font-size: 15px; color: rgba(253,246,240,0.4); text-decoration: line-through; margin-bottom: 6px; }
+  .preco-upsell .por {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(44px,7vw,64px); font-weight: 900;
+    color: var(--branco); line-height: 1;
+  }
+  .preco-upsell .parcelas { font-size: 14px; color: rgba(253,246,240,0.5); margin-top: 6px; }
+
+  .btn-upsell {
+    display: block;
+    background: linear-gradient(135deg, var(--rose) 0%, #A85070 100%);
+    color: var(--branco);
+    font-size: 17px; font-weight: 500;
+    padding: 20px 40px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+    margin-top: 8px;
+  }
+  .btn-upsell:hover { transform: translateY(-2px); }
+
+  .btn-skip {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(253,246,240,0.35);
+    margin-top: 16px;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .btn-skip:hover { color: rgba(253,246,240,0.6); }
+
+  /* MENSAGEM FINAL */
+  .mensagem { background: var(--creme); text-align: center; }
+  .mensagem-texto {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3vw, 28px);
+    font-style: italic;
+    color: var(--vinho);
+    line-height: 1.6;
+    max-width: 580px;
+    margin: 0 auto 32px;
+  }
+  .divisor {
+    display: flex; align-items: center; gap: 16px;
+    max-width: 300px; margin: 0 auto 32px;
+  }
+  .div-line { flex:1; height:1px; background: var(--creme-escuro); }
+  .div-dot { width:6px; height:6px; background: var(--rose); border-radius:50%; }
+
+  footer {
+    background: var(--vinho);
+    text-align: center;
+    padding: 36px 24px;
+    font-size: 13px;
+    color: rgba(253,246,240,0.35);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="ornament"></div>
+  <div class="ornament"></div>
+  <div class="hero-content">
+    <div class="checkmark">✓</div>
+    <h1>Compra confirmada.<br>Bem-vinda ao <em>outro lado.</em></h1>
+    <p class="hero-sub">Seu acesso ao livro foi liberado. Mas antes de abrir — leia isso.</p>
+    <a href="#acesso" class="btn-acesso">Ver meu acesso</a>
+  </div>
+</section>
+
+<!-- ACESSO -->
+<section class="acesso" id="acesso">
+  <div class="container">
+    <p class="eyebrow">Seu acesso</p>
+    <h2 class="section-title">Como acessar seu livro agora</h2>
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div>Verifique seu email — você recebeu um email com o assunto <strong>"Seu acesso chegou"</strong>. Se não encontrar, cheque a caixa de spam ou promoções.</div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div>Clique no link de acesso dentro do email. Ele vai te levar direto ao seu material em PDF.</div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div>Salve o arquivo no seu celular ou tablet. Você pode ler quando e onde quiser, sem precisar de internet.</div>
+      </li>
+      <li>
+        <div class="step-num">4</div>
+        <div>Reserve um momento só seu pra essa leitura. Não precisa ser de uma vez — mas cada capítulo vale a atenção.</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- UPSELL -->
+<section class="upsell">
+  <div class="container">
+    <p class="eyebrow">Oferta especial · Apenas agora</p>
+    <h2 class="section-title">Você quer ir além do livro?</h2>
+    <p>O livro te dá clareza. Mas a libertação de verdade acontece quando você <strong>processa em voz alta</strong>, no seu ritmo, com apoio.</p>
+    <p>Por isso criei o <strong>mini curso em áudio "Como Se Libertar de Vez"</strong> — o próximo passo natural depois do livro.</p>
+
+    <div class="upsell-box">
+      <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:rgba(253,246,240,0.9); margin-bottom:20px;">"Como Se Libertar de Vez"</p>
+      <ul class="upsell-lista">
+        <li><span>✦</span><span>5 módulos em áudio — ouça enquanto dirige, caminha ou descansa</span></li>
+        <li><span>✦</span><span>Exercícios práticos de desapego e reconstrução da identidade</span></li>
+        <li><span>✦</span><span>Como reconhecer os padrões antes de entrar num relacionamento parecido</span></li>
+        <li><span>✦</span><span>Meditação guiada de libertação emocional</span></li>
+        <li><span>✦</span><span>Acesso vitalício — sem prazo, no seu ritmo</span></li>
+      </ul>
+      <div class="preco-upsell">
+        <p class="de">De R$197</p>
+        <p class="por">R$67</p>
+        <p class="parcelas">oferta exclusiva pós-compra · disponível só agora</p>
+      </div>
+      <a href="#" class="btn-upsell">Sim, quero o mini curso por R$67</a>
+      <a href="#mensagem" class="btn-skip">Não, obrigada — vou ficar só com o livro por enquanto</a>
+    </div>
+  </div>
+</section>
+
+<!-- MENSAGEM FINAL -->
+<section class="mensagem" id="mensagem">
+  <div class="container">
+    <div class="divisor">
+      <div class="div-line"></div>
+      <div class="div-dot"></div>
+      <div class="div-line"></div>
+    </div>
+    <p class="mensagem-texto">"Você sobreviveu. Agora é hora de viver."</p>
+    <p style="font-size:16px; color:var(--cinza-medio); line-height:1.7;">Obrigada por confiar nesse material.<br>A clareza que você está buscando está nas próximas páginas.</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Você Não Era Louca · Todos os direitos reservados</p>
+</footer>
+
+<script>
+  document.querySelector('a[href="#acesso"]').addEventListener('click', e => {
+    e.preventDefault();
+    document.getElementById('acesso').scrollIntoView({ behavior: 'smooth' });
+  });
+  document.querySelector('a[href="#mensagem"]').addEventListener('click', e => {
+    e.preventDefault();
+    document.getElementById('mensagem').scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>
