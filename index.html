@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Você Não Era Louca — O livro que ninguém te deu quando você mais precisava</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
-<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -22,8 +20,6 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=3226221460872434&ev=PageView&noscript=1"
 /></noscript>
-<!-- End Meta Pixel Code -->
-
 <style>
 :root {
   --vinho: #5C1522;
@@ -41,188 +37,79 @@ src="https://www.facebook.com/tr?id=3226221460872434&ev=PageView&noscript=1"
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--creme);color:var(--cinza);overflow-x:hidden;}
-
-/* GRAIN */
-body::after{
-  content:'';position:fixed;inset:0;pointer-events:none;z-index:999;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  opacity:0.35;
-}
-
-/* SCROLL ANIMATIONS */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.35;}
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease;}
 .reveal.from-left{transform:translateX(-60px);}
 .reveal.from-right{transform:translateX(60px);}
 .reveal.visible{opacity:1;transform:translate(0,0);}
-
-/* HERO */
-.hero{
-  min-height:100vh;
-  display:grid;grid-template-columns:55% 45%;
-  position:relative;overflow:hidden;
-}
+.hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;position:relative;overflow:hidden;}
 @media(max-width:768px){.hero{grid-template-columns:1fr;}}
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,#2A0810 0%,#5C1522 40%,#8B2438 100%);
-  z-index:0;
-}
-.hero-left{
-  position:relative;z-index:2;
-  padding:100px 60px 100px 80px;
-  display:flex;flex-direction:column;justify-content:center;
-}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#2A0810 0%,#5C1522 40%,#8B2438 100%);z-index:0;}
+.hero-left{position:relative;z-index:2;padding:100px 60px 100px 80px;display:flex;flex-direction:column;justify-content:center;}
 @media(max-width:768px){.hero-left{padding:80px 24px 40px;}}
-.hero-tag{
-  display:inline-block;font-size:10px;font-weight:500;letter-spacing:3px;
-  text-transform:uppercase;color:var(--rose-claro);
-  border:1px solid rgba(196,115,138,.4);padding:5px 16px;border-radius:40px;
-  margin-bottom:28px;opacity:0;animation:fadeUp .8s ease .2s forwards;
-  width:fit-content;
-}
-.hero h1{
-  font-family:'Playfair Display',serif;font-size:clamp(46px,5.5vw,82px);
-  font-weight:900;color:var(--branco);line-height:1.0;margin-bottom:24px;
-  opacity:0;animation:fadeUp .8s ease .4s forwards;
-}
+.hero-tag{display:inline-block;font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--rose-claro);border:1px solid rgba(196,115,138,.4);padding:5px 16px;border-radius:40px;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease .2s forwards;width:fit-content;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(46px,5.5vw,82px);font-weight:900;color:var(--branco);line-height:1.0;margin-bottom:24px;opacity:0;animation:fadeUp .8s ease .4s forwards;}
 .hero h1 em{font-style:italic;color:var(--rose-claro);}
-.hero-sub{
-  font-size:clamp(16px,1.6vw,19px);font-weight:300;
-  color:rgba(253,246,240,.82);line-height:1.85;margin-bottom:40px;
-  opacity:0;animation:fadeUp .8s ease .6s forwards;
-  max-width:520px;
-}
+.hero-sub{font-size:clamp(16px,1.6vw,19px);font-weight:300;color:rgba(253,246,240,.82);line-height:1.85;margin-bottom:40px;opacity:0;animation:fadeUp .8s ease .6s forwards;max-width:520px;}
 .hero-sub strong{color:var(--rose-claro);font-weight:500;}
 .hero-cta{opacity:0;animation:fadeUp .8s ease .8s forwards;}
-.btn-p{
-  display:inline-block;
-  background:linear-gradient(135deg,var(--rose) 0%,#A85070 100%);
-  color:var(--branco);font-size:16px;font-weight:500;padding:18px 40px;
-  border-radius:3px;text-decoration:none;
-  transition:transform .2s,box-shadow .2s;
-  box-shadow:0 8px 32px rgba(92,21,34,.5);
-}
+.btn-p{display:inline-block;background:linear-gradient(135deg,var(--rose) 0%,#A85070 100%);color:var(--branco);font-size:16px;font-weight:500;padding:18px 40px;border-radius:3px;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 32px rgba(92,21,34,.5);}
 .btn-p:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(92,21,34,.6);}
-.hero-nota{display:block;margin-top:14px;font-size:13px;color:rgba(253,246,240,.4);}
-
-.hero-right{
-  position:relative;z-index:2;overflow:hidden;
-}
+.hero-social{display:block;font-size:12px;color:rgba(196,115,138,.7);letter-spacing:1px;margin-bottom:14px;}
+.hero-nota{display:block;margin-top:12px;font-size:13px;color:rgba(253,246,240,.4);}
+.hero-right{position:relative;z-index:2;overflow:hidden;}
 @media(max-width:768px){.hero-right{height:360px;}}
-.hero-right img{
-  width:100%;height:100%;object-fit:cover;object-position:center top;
-  opacity:0;animation:imgFade 1.2s ease .5s forwards;
-  filter:brightness(.75) saturate(1.2);
-}
-.hero-right::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to right,var(--vinho2) 0%,transparent 40%);
-}
+.hero-right img{width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0;animation:imgFade 1.2s ease .5s forwards;filter:brightness(.75) saturate(1.2);}
+.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--vinho2) 0%,transparent 40%);}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 @keyframes imgFade{from{opacity:0;}to{opacity:1;}}
-
-/* SECTIONS */
 section{padding:96px 24px;}
 .container{max-width:760px;margin:0 auto;}
 .container-wide{max-width:1060px;margin:0 auto;}
 .eyebrow{font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:14px;}
 .titulo{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,46px);font-weight:700;color:var(--vinho);line-height:1.15;margin-bottom:28px;}
-
-/* RUPTURA */
 .ruptura{background:var(--branco);border-top:4px solid var(--vinho);}
-.ruptura-q{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(19px,2.6vw,27px);font-style:italic;
-  color:var(--vinho);line-height:1.75;text-align:center;
-  max-width:700px;margin:0 auto 32px;
-}
-.ruptura-resp{
-  text-align:center;font-size:18px;font-weight:500;color:var(--vinho);
-  border-top:1px solid var(--creme2);padding-top:28px;margin-top:28px;
-}
-
-/* 2 COLS */
+.ruptura-q{font-family:'Playfair Display',serif;font-size:clamp(19px,2.6vw,27px);font-style:italic;color:var(--vinho);line-height:1.75;text-align:center;max-width:700px;margin:0 auto 32px;}
+.ruptura-resp{text-align:center;font-size:18px;font-weight:500;color:var(--vinho);border-top:1px solid var(--creme2);padding-top:28px;margin-top:28px;}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
 @media(max-width:768px){.two-col{grid-template-columns:1fr;gap:40px;}}
 .two-col.reverse .col-img{order:-1;}
 @media(max-width:768px){.two-col.reverse .col-img{order:0;}}
-
 .col-img{border-radius:2px;overflow:hidden;position:relative;}
-.col-img img{
-  width:100%;display:block;
-  filter:brightness(.85) saturate(1.1);
-  transition:transform .6s ease;
-}
+.col-img img{width:100%;display:block;filter:brightness(.85) saturate(1.1);transition:transform .6s ease;}
 .col-img:hover img{transform:scale(1.03);}
-.col-img::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to bottom,transparent 60%,rgba(58,15,24,.4) 100%);
-}
-
-/* IDENTIFICAÇÃO */
+.col-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(58,15,24,.4) 100%);}
 .identificacao{background:var(--rosa-p);}
 .id-list{list-style:none;margin-bottom:28px;}
-.id-list li{
-  font-size:17px;line-height:1.65;padding:15px 0 15px 28px;
-  border-bottom:1px solid rgba(196,115,138,.2);
-  position:relative;color:var(--cinza);
-}
+.id-list li{font-size:17px;line-height:1.65;padding:15px 0 15px 28px;border-bottom:1px solid rgba(196,115,138,.2);position:relative;color:var(--cinza);}
 .id-list li:last-child{border-bottom:none;}
 .id-list li::before{content:'—';position:absolute;left:0;color:var(--rose);font-weight:700;}
 .destaque{background:var(--branco);border-left:4px solid var(--vinho);padding:22px 26px;margin-top:24px;}
 .destaque p{font-family:'Playfair Display',serif;font-size:clamp(17px,2vw,21px);font-style:italic;color:var(--vinho);line-height:1.55;}
-
-/* INFERNO */
 .inferno{background:var(--vinho2);position:relative;overflow:hidden;}
-.inferno::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 100% 80% at 70% 50%,#8B2438 0%,#3A0F18 60%);
-}
+.inferno::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 80% at 70% 50%,#8B2438 0%,#3A0F18 60%);}
 .inferno .titulo{color:var(--branco);}
 .inferno p{color:rgba(253,246,240,.82);font-size:17px;line-height:1.8;margin-bottom:18px;}
 .inferno strong{color:var(--rose-claro);}
 .inferno-quote{border:1px solid rgba(196,115,138,.3);padding:26px 30px;margin:28px 0;}
 .inferno-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(18px,2vw,22px);color:var(--rose-claro);margin:0;line-height:1.6;}
-
-/* IDENTIDADE */
 .identidade{background:var(--creme);}
 .identidade p{font-size:17px;line-height:1.8;color:var(--cinza-m);margin-bottom:18px;}
 .identidade strong{color:var(--vinho);}
-
-/* PARA QUEM É */
 .paraquem{background:var(--vinho);position:relative;overflow:hidden;}
-.paraquem::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 80% 100% at 100% 50%,#8B2438 0%,#3A0F18 70%);
-}
+.paraquem::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 100% at 100% 50%,#8B2438 0%,#3A0F18 70%);}
 .paraquem .titulo{color:var(--branco);}
 .paraquem-lista{list-style:none;margin-top:8px;}
-.paraquem-lista li{
-  display:flex;align-items:flex-start;gap:14px;
-  padding:16px 0;border-bottom:1px solid rgba(196,115,138,.15);
-  font-size:16px;color:rgba(253,246,240,.85);line-height:1.6;
-}
+.paraquem-lista li{display:flex;align-items:flex-start;gap:14px;padding:16px 0;border-bottom:1px solid rgba(196,115,138,.15);font-size:16px;color:rgba(253,246,240,.85);line-height:1.6;}
 .paraquem-lista li:last-child{border-bottom:none;}
-.chkr{
-  width:22px;height:22px;min-width:22px;
-  background:rgba(196,115,138,.2);border:1px solid var(--rose);
-  border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:2px;
-}
+.chkr{width:22px;height:22px;min-width:22px;background:rgba(196,115,138,.2);border:1px solid var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:2px;}
 .chkr::after{content:'✓';color:var(--rose-claro);font-size:11px;font-weight:700;}
-
-/* DESCUBRA */
 .descubra{background:var(--creme);}
 .beneficios{list-style:none;margin-top:36px;}
-.beneficios li{
-  display:flex;align-items:flex-start;gap:16px;
-  padding:20px 0;border-bottom:1px solid var(--creme2);
-  font-size:16px;line-height:1.6;color:var(--cinza-m);
-}
+.beneficios li{display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid var(--creme2);font-size:16px;line-height:1.6;color:var(--cinza-m);}
 .beneficios li:last-child{border-bottom:none;}
 .chk{width:24px;height:24px;min-width:24px;background:var(--vinho);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px;}
 .chk::after{content:'✓';color:var(--branco);font-size:12px;font-weight:700;}
-
-/* DEPOIMENTOS */
 .depos{background:var(--rosa-p);}
 .depo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:44px;}
 .depo{background:var(--branco);border:1px solid rgba(196,115,138,.2);padding:32px 26px;position:relative;}
@@ -231,8 +118,6 @@ section{padding:96px 24px;}
 .depo-depois{font-size:11px;font-weight:500;color:var(--vinho);text-transform:uppercase;letter-spacing:1.5px;margin-top:16px;margin-bottom:6px;}
 .depo-txt{font-size:15px;line-height:1.7;color:var(--cinza-m);}
 .depo-autor{font-size:13px;font-weight:500;color:var(--vinho);margin-top:16px;letter-spacing:.3px;}
-
-/* OFERTA */
 .oferta{background:var(--creme);}
 .oferta-box{background:var(--branco);border:1px solid rgba(196,115,138,.25);padding:56px 48px;text-align:center;box-shadow:0 24px 80px rgba(92,21,34,.08);}
 @media(max-width:600px){.oferta-box{padding:36px 22px;}}
@@ -244,9 +129,9 @@ section{padding:96px 24px;}
 .oferta-itens li:last-child{border-bottom:none;}
 .oferta-itens li span:first-child{color:var(--rose);font-weight:700;}
 .urgencia{background:#FFF8E6;border:1px solid #E8C547;padding:12px 18px;margin-bottom:18px;font-size:14px;color:#7A5C00;font-weight:500;}
+.pressao{background:var(--vinho);padding:24px 28px;margin-bottom:18px;}
+.pressao p{font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:rgba(253,246,240,.9);line-height:1.7;margin:0;}
 .garantia{margin-top:18px;padding:18px 22px;background:#F0F7F1;border:1px solid #C8E6CC;font-size:14px;color:#2E5E38;}
-
-/* FAQ */
 .faq{background:var(--rosa-p);}
 .faq-wrap{margin-top:36px;}
 .faq-item{border-bottom:1px solid rgba(196,115,138,.25);}
@@ -255,25 +140,15 @@ section{padding:96px 24px;}
 .faq-q::after{content:'+';font-size:22px;font-weight:300;color:var(--rose);transition:transform .3s;flex-shrink:0;margin-left:16px;}
 details[open] .faq-q::after{transform:rotate(45deg);}
 .faq-a{padding:0 0 20px;font-size:15px;line-height:1.75;color:var(--cinza-m);}
-
-/* DIVIDER */
 .div-line{display:flex;align-items:center;gap:16px;margin:44px 0;}
 .dl{flex:1;height:1px;background:var(--creme2);}
 .dd{width:6px;height:6px;background:var(--rose);border-radius:50%;}
-
-/* STICKY */
-.sticky-bar{
-  position:fixed;bottom:0;left:0;right:0;background:var(--vinho);
-  padding:15px 24px;display:flex;align-items:center;justify-content:center;gap:24px;
-  z-index:100;transform:translateY(100%);transition:transform .4s ease;
-  box-shadow:0 -8px 32px rgba(0,0,0,.2);
-}
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:var(--vinho);padding:15px 24px;display:flex;align-items:center;justify-content:center;gap:24px;z-index:100;transform:translateY(100%);transition:transform .4s ease;box-shadow:0 -8px 32px rgba(0,0,0,.2);}
 .sticky-bar.visible{transform:translateY(0);}
 .sticky-txt{font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:rgba(253,246,240,.8);}
 .btn-sticky{background:var(--rose);color:var(--branco);font-size:14px;font-weight:500;padding:11px 26px;border-radius:3px;text-decoration:none;white-space:nowrap;transition:background .2s;}
 .btn-sticky:hover{background:var(--rose-claro);}
 @media(max-width:600px){.sticky-txt{display:none;}}
-
 footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13px;color:rgba(253,246,240,.35);}
 </style>
 </head>
@@ -289,6 +164,7 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
       <strong>Não exagerou. E está na hora de você saber a verdade.</strong>
     </p>
     <div class="hero-cta">
+      <span class="hero-social">+ de 3.000 mulheres já entenderam o que aconteceu com elas</span>
       <a href="https://go.perfectpay.com.br/PPU38CQ9AK4" class="btn-p">Quero entender o que ele fez comigo — R$47</a>
       <span class="hero-nota">Acesso imediato · Leitura no celular, tablet ou computador</span>
     </div>
@@ -417,7 +293,7 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
       <li class="reveal"><span class="chk"></span><span>Como começar a se libertar sem depender do fechamento que ele nunca vai te dar</span></li>
       <li class="reveal"><span class="chk"></span><span>Quem você é sem ele — e os exercícios práticos pra reencontrar essa mulher</span></li>
     </ul>
-    <div class="div-line"></div>
+    <div class="div-line"><div class="dl"></div><div class="dd"></div><div class="dl"></div></div>
     <p class="reveal" style="font-size:16px;color:var(--cinza-m);line-height:1.75;text-align:center;">O livro inclui ainda um <strong>quiz completo</strong> — "Seu ex era narcisista?" — com análise personalizada do seu resultado.</p>
   </div>
 </section>
@@ -472,6 +348,9 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
       <p class="preco-nota">pagamento único · sem assinatura</p>
       <div class="urgencia">⏳ <strong>Preço promocional de lançamento.</strong> Pode voltar a R$97 a qualquer momento.</div>
       <a href="https://go.perfectpay.com.br/PPU38CQ9AK4" class="btn-p" style="font-size:17px;padding:20px 56px;">Chega de se culpar — quero a verdade</a>
+      <div class="pressao">
+        <p>"Ignorar isso agora é continuar presa nisso. Ou você entende o que aconteceu com você hoje — ou repete com o próximo."</p>
+      </div>
       <div class="garantia">🛡️ <strong>Garantia de 7 dias.</strong> Se você ler e sentir que não valeu, devolvo cada centavo. Sem perguntas.</div>
     </div>
   </div>
@@ -514,28 +393,21 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
   <p style="margin-top:8px;">Este produto é 100% digital. Após o pagamento, o acesso é liberado imediatamente.</p>
 </footer>
 
-<!-- STICKY BAR -->
 <div class="sticky-bar" id="stickyBar">
-  <span class="sticky-txt">Você não estava exagerando.</span>
+  <span class="sticky-txt">Ou você entende hoje, ou repete amanhã.</span>
   <a href="https://go.perfectpay.com.br/PPU38CQ9AK4" class="btn-sticky">Quero a verdade — R$47</a>
 </div>
 
 <script>
-// STICKY
 const sticky = document.getElementById('stickyBar');
 window.addEventListener('scroll', () => {
   sticky.classList.toggle('visible', window.scrollY > 600);
 });
-
-// SCROLL REVEAL
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
+    if (entry.isIntersecting) entry.target.classList.add('visible');
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
