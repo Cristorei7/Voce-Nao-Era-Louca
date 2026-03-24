@@ -78,27 +78,30 @@ section{padding:96px 24px;}
 .col-img{position:relative;}
 .col-img img{
   width:100%;display:block;
-  filter:brightness(.9) saturate(1.15);
   transition:transform .6s ease;
-  -webkit-mask-image:radial-gradient(ellipse 85% 85% at 50% 45%, black 40%, transparent 100%);
-  mask-image:radial-gradient(ellipse 85% 85% at 50% 45%, black 40%, transparent 100%);
 }
 .col-img:hover img{transform:scale(1.04);}
 
-.identificacao .col-img img{
-  -webkit-mask-image:radial-gradient(ellipse 80% 88% at 55% 40%, black 35%, transparent 100%);
-  mask-image:radial-gradient(ellipse 80% 88% at 55% 40%, black 35%, transparent 100%);
-  filter:brightness(.85) saturate(1.2);
+/* Imagem flutuante — sem borda, fundo desaparece */
+.float-img{
+  position:relative;
+  opacity:0;
+  animation:imgReveal .9s ease forwards;
 }
-.inferno .col-img img{
-  -webkit-mask-image:radial-gradient(ellipse 80% 90% at 50% 40%, black 38%, transparent 100%);
-  mask-image:radial-gradient(ellipse 80% 90% at 50% 40%, black 38%, transparent 100%);
-  filter:brightness(.8) saturate(1.1);
+@keyframes imgReveal{from{opacity:0;transform:translateX(40px);}to{opacity:1;transform:translateX(0);}}
+.float-img.left{animation-name:imgRevealLeft;}
+@keyframes imgRevealLeft{from{opacity:0;transform:translateX(-40px);}to{opacity:1;transform:translateX(0);}}
+
+.float-img img{
+  width:100%;display:block;
+  mix-blend-mode:screen;
+  filter:brightness(.9) saturate(1.2);
+  transition:transform .6s ease;
 }
-.paraquem .col-img img{
-  -webkit-mask-image:radial-gradient(ellipse 85% 88% at 50% 50%, black 40%, transparent 100%);
-  mask-image:radial-gradient(ellipse 85% 88% at 50% 50%, black 40%, transparent 100%);
-  filter:brightness(.75) saturate(1.1);
+.float-img:hover img{transform:scale(1.04);}
+.identificacao .float-img img{
+  mix-blend-mode:multiply;
+  filter:brightness(.8) saturate(1.3);
 }
 .identificacao{background:var(--rosa-p);}
 .id-list{list-style:none;margin-bottom:28px;}
@@ -231,7 +234,7 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
           <p>"O que aconteceu com você tem nome. Tem padrão. E não foi culpa sua — nunca foi."</p>
         </div>
       </div>
-      <div class="col-img reveal from-right">
+      <div class="float-img">
         <img src="img-silhueta.jpg" alt="Silhueta de mulher">
       </div>
     </div>
@@ -242,7 +245,7 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
 <section class="inferno">
   <div class="container-wide" style="position:relative;z-index:2;">
     <div class="two-col two-col reverse">
-      <div class="col-img reveal from-left">
+      <div class="float-img left">
         <img src="img-mulher.jpg" alt="Mulher se abraçando">
       </div>
       <div class="reveal from-right">
@@ -291,7 +294,7 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
           <li><span class="chkr"></span><span>Quer mudar, mas não sabe por onde começar</span></li>
         </ul>
       </div>
-      <div class="col-img reveal from-right">
+      <div class="float-img">
         <img src="img-teia.jpg" alt="Teia de aranha">
       </div>
     </div>
@@ -430,6 +433,42 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Remove fundo escuro das imagens via canvas
+function removeDarkBackground(img, threshold) {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = img.naturalWidth;
+  canvas.height = img.naturalHeight;
+  ctx.drawImage(img, 0, 0);
+  const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const pixels = data.data;
+  for (let i = 0; i < pixels.length; i += 4) {
+    const r = pixels[i], g = pixels[i+1], b = pixels[i+2];
+    const brightness = (r + g + b) / 3;
+    if (brightness < threshold) {
+      // Calcula alpha gradual baseado no brilho
+      pixels[i+3] = Math.floor((brightness / threshold) * 255 * (brightness / threshold));
+    }
+  }
+  ctx.putImageData(data, 0, 0);
+  img.src = canvas.toDataURL('image/png');
+  img.style.opacity = '1';
+}
+
+function processFloatImages() {
+  document.querySelectorAll('.float-img img').forEach(img => {
+    if (img.complete && img.naturalWidth > 0) {
+      try { removeDarkBackground(img, 80); } catch(e) {}
+    } else {
+      img.addEventListener('load', () => {
+        try { removeDarkBackground(img, 80); } catch(e) {}
+      });
+    }
+  });
+}
+
+window.addEventListener('load', processFloatImages);
 </script>
 </body>
 </html>
