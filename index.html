@@ -78,22 +78,28 @@ section{padding:96px 24px;}
 .col-img{position:relative;}
 .col-img img{
   width:100%;display:block;
-  mix-blend-mode:screen;
-  filter:brightness(1) saturate(1.2) contrast(1.1);
+  filter:brightness(.9) saturate(1.15);
   transition:transform .6s ease;
-  isolation:auto;
+  -webkit-mask-image:radial-gradient(ellipse 85% 85% at 50% 45%, black 40%, transparent 100%);
+  mask-image:radial-gradient(ellipse 85% 85% at 50% 45%, black 40%, transparent 100%);
 }
 .col-img:hover img{transform:scale(1.04);}
 
-/* Para seção clara (identificacao) - multiply faz preto desaparecer em fundo claro */
-.identificacao .col-img{background:var(--rosa-p);}
-.identificacao .col-img img{mix-blend-mode:multiply;filter:brightness(.85) saturate(1.3) contrast(1.1);}
-
-/* Para seções escuras - screen faz preto desaparecer */
-.inferno .col-img{background:transparent;}
-.inferno .col-img img{mix-blend-mode:screen;filter:brightness(.9) saturate(1.2);}
-.paraquem .col-img{background:transparent;}
-.paraquem .col-img img{mix-blend-mode:screen;filter:brightness(.85) saturate(1.1);}
+.identificacao .col-img img{
+  -webkit-mask-image:radial-gradient(ellipse 80% 88% at 55% 40%, black 35%, transparent 100%);
+  mask-image:radial-gradient(ellipse 80% 88% at 55% 40%, black 35%, transparent 100%);
+  filter:brightness(.85) saturate(1.2);
+}
+.inferno .col-img img{
+  -webkit-mask-image:radial-gradient(ellipse 80% 90% at 50% 40%, black 38%, transparent 100%);
+  mask-image:radial-gradient(ellipse 80% 90% at 50% 40%, black 38%, transparent 100%);
+  filter:brightness(.8) saturate(1.1);
+}
+.paraquem .col-img img{
+  -webkit-mask-image:radial-gradient(ellipse 85% 88% at 50% 50%, black 40%, transparent 100%);
+  mask-image:radial-gradient(ellipse 85% 88% at 50% 50%, black 40%, transparent 100%);
+  filter:brightness(.75) saturate(1.1);
+}
 .identificacao{background:var(--rosa-p);}
 .id-list{list-style:none;margin-bottom:28px;}
 .id-list li{font-size:17px;line-height:1.65;padding:15px 0 15px 28px;border-bottom:1px solid rgba(196,115,138,.2);position:relative;color:var(--cinza);}
