@@ -75,10 +75,19 @@ section{padding:96px 24px;}
 @media(max-width:768px){.two-col{grid-template-columns:1fr;gap:40px;}}
 .two-col.reverse .col-img{order:-1;}
 @media(max-width:768px){.two-col.reverse .col-img{order:0;}}
-.col-img{border-radius:2px;overflow:hidden;position:relative;}
-.col-img img{width:100%;display:block;filter:brightness(.85) saturate(1.1);transition:transform .6s ease;}
-.col-img:hover img{transform:scale(1.03);}
-.col-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(58,15,24,.4) 100%);}
+.col-img{position:relative;overflow:visible;}
+.col-img img{
+  width:100%;display:block;
+  mix-blend-mode:lighten;
+  filter:brightness(.95) saturate(1.15) contrast(1.05);
+  transition:transform .6s ease,filter .6s ease;
+}
+.col-img:hover img{transform:scale(1.04);filter:brightness(1.05) saturate(1.2);}
+
+/* Seções claras — blend multiply funde com fundo creme */
+.identificacao .col-img img{mix-blend-mode:multiply;filter:brightness(.9) saturate(1.2);}
+.paraquem .col-img img{mix-blend-mode:screen;filter:brightness(.7) saturate(1.1);}
+.inferno .col-img img{mix-blend-mode:lighten;filter:brightness(.8) saturate(1.1);}
 .identificacao{background:var(--rosa-p);}
 .id-list{list-style:none;margin-bottom:28px;}
 .id-list li{font-size:17px;line-height:1.65;padding:15px 0 15px 28px;border-bottom:1px solid rgba(196,115,138,.2);position:relative;color:var(--cinza);}
