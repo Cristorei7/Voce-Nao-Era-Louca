@@ -75,19 +75,25 @@ section{padding:96px 24px;}
 @media(max-width:768px){.two-col{grid-template-columns:1fr;gap:40px;}}
 .two-col.reverse .col-img{order:-1;}
 @media(max-width:768px){.two-col.reverse .col-img{order:0;}}
-.col-img{position:relative;overflow:visible;}
+.col-img{position:relative;}
 .col-img img{
   width:100%;display:block;
-  mix-blend-mode:lighten;
-  filter:brightness(.95) saturate(1.15) contrast(1.05);
-  transition:transform .6s ease,filter .6s ease;
+  mix-blend-mode:screen;
+  filter:brightness(1) saturate(1.2) contrast(1.1);
+  transition:transform .6s ease;
+  isolation:auto;
 }
-.col-img:hover img{transform:scale(1.04);filter:brightness(1.05) saturate(1.2);}
+.col-img:hover img{transform:scale(1.04);}
 
-/* Seções claras — blend multiply funde com fundo creme */
-.identificacao .col-img img{mix-blend-mode:multiply;filter:brightness(.9) saturate(1.2);}
-.paraquem .col-img img{mix-blend-mode:screen;filter:brightness(.7) saturate(1.1);}
-.inferno .col-img img{mix-blend-mode:lighten;filter:brightness(.8) saturate(1.1);}
+/* Para seção clara (identificacao) - multiply faz preto desaparecer em fundo claro */
+.identificacao .col-img{background:var(--rosa-p);}
+.identificacao .col-img img{mix-blend-mode:multiply;filter:brightness(.85) saturate(1.3) contrast(1.1);}
+
+/* Para seções escuras - screen faz preto desaparecer */
+.inferno .col-img{background:transparent;}
+.inferno .col-img img{mix-blend-mode:screen;filter:brightness(.9) saturate(1.2);}
+.paraquem .col-img{background:transparent;}
+.paraquem .col-img img{mix-blend-mode:screen;filter:brightness(.85) saturate(1.1);}
 .identificacao{background:var(--rosa-p);}
 .id-list{list-style:none;margin-bottom:28px;}
 .id-list li{font-size:17px;line-height:1.65;padding:15px 0 15px 28px;border-bottom:1px solid rgba(196,115,138,.2);position:relative;color:var(--cinza);}
@@ -95,7 +101,7 @@ section{padding:96px 24px;}
 .id-list li::before{content:'—';position:absolute;left:0;color:var(--rose);font-weight:700;}
 .destaque{background:var(--branco);border-left:4px solid var(--vinho);padding:22px 26px;margin-top:24px;}
 .destaque p{font-family:'Playfair Display',serif;font-size:clamp(17px,2vw,21px);font-style:italic;color:var(--vinho);line-height:1.55;}
-.inferno{background:var(--vinho2);position:relative;overflow:hidden;}
+.inferno{background:var(--vinho2);position:relative;}
 .inferno::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 80% at 70% 50%,#8B2438 0%,#3A0F18 60%);}
 .inferno .titulo{color:var(--branco);}
 .inferno p{color:rgba(253,246,240,.82);font-size:17px;line-height:1.8;margin-bottom:18px;}
@@ -105,7 +111,7 @@ section{padding:96px 24px;}
 .identidade{background:var(--creme);}
 .identidade p{font-size:17px;line-height:1.8;color:var(--cinza-m);margin-bottom:18px;}
 .identidade strong{color:var(--vinho);}
-.paraquem{background:var(--vinho);position:relative;overflow:hidden;}
+.paraquem{background:var(--vinho);position:relative;}
 .paraquem::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 100% at 100% 50%,#8B2438 0%,#3A0F18 70%);}
 .paraquem .titulo{color:var(--branco);}
 .paraquem-lista{list-style:none;margin-top:8px;}
