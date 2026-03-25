@@ -59,14 +59,135 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;ba
 .hero-nota{display:block;margin-top:12px;font-size:13px;color:rgba(253,246,240,.4);}
 .hero-right{position:relative;z-index:2;overflow:hidden;}
 @media(max-width:768px){.hero-right{height:360px;}}
+.hero-right img{width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0;animation:imgFade 1.2s ease .5s forwards;filter:brightness(.75) saturate(1.2);}
+.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--vinho2) 0%,transparent 40%);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes imgFade{from{opacity:0;}to{opacity:1;}}
+section{padding:96px 24px;}
+.container{max-width:760px;margin:0 auto;}
+.container-wide{max-width:1060px;margin:0 auto;}
+.eyebrow{font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:14px;}
+.titulo{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,46px);font-weight:700;color:var(--vinho);line-height:1.15;margin-bottom:28px;}
+.ruptura{background:var(--branco);border-top:4px solid var(--vinho);}
+.ruptura-q{font-family:'Playfair Display',serif;font-size:clamp(19px,2.6vw,27px);font-style:italic;color:var(--vinho);line-height:1.75;text-align:center;max-width:700px;margin:0 auto 32px;}
+.ruptura-resp{text-align:center;font-size:18px;font-weight:500;color:var(--vinho);border-top:1px solid var(--creme2);padding-top:28px;margin-top:28px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+@media(max-width:768px){.two-col{grid-template-columns:1fr;gap:40px;}}
+.two-col.reverse .col-img{order:-1;}
+@media(max-width:768px){.two-col.reverse .col-img{order:0;}}
+.col-img{border-radius:2px;overflow:hidden;position:relative;}
+.col-img img{width:100%;display:block;filter:brightness(.8) saturate(1.15);transition:transform .6s ease;}
+.col-img:hover img{transform:scale(1.03);}
+.col-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(58,15,24,.35) 100%);}
+.identificacao{background:var(--rosa-p);}
+.id-list{list-style:none;margin-bottom:28px;}
+.id-list li{font-size:17px;line-height:1.65;padding:15px 0 15px 28px;border-bottom:1px solid rgba(196,115,138,.2);position:relative;color:var(--cinza);}
+.id-list li:last-child{border-bottom:none;}
+.id-list li::before{content:'—';position:absolute;left:0;color:var(--rose);font-weight:700;}
+.destaque{background:var(--branco);border-left:4px solid var(--vinho);padding:22px 26px;margin-top:24px;}
+.destaque p{font-family:'Playfair Display',serif;font-size:clamp(17px,2vw,21px);font-style:italic;color:var(--vinho);line-height:1.55;}
+.inferno{background:var(--vinho2);position:relative;}
+.inferno::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 80% at 70% 50%,#8B2438 0%,#3A0F18 60%);}
+.inferno .titulo{color:var(--branco);}
+.inferno p{color:rgba(253,246,240,.82);font-size:17px;line-height:1.8;margin-bottom:18px;}
+.inferno strong{color:var(--rose-claro);}
+.inferno-quote{border:1px solid rgba(196,115,138,.3);padding:26px 30px;margin:28px 0;}
+.inferno-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(18px,2vw,22px);color:var(--rose-claro);margin:0;line-height:1.6;}
+.identidade{background:var(--creme);}
+.identidade p{font-size:17px;line-height:1.8;color:var(--cinza-m);margin-bottom:18px;}
+.identidade strong{color:var(--vinho);}
+.paraquem{background:var(--vinho);position:relative;}
+.paraquem::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 100% at 100% 50%,#8B2438 0%,#3A0F18 70%);}
+.paraquem .titulo{color:var(--branco);}
+.paraquem-lista{list-style:none;margin-top:8px;}
+.paraquem-lista li{display:flex;align-items:flex-start;gap:14px;padding:16px 0;border-bottom:1px solid rgba(196,115,138,.15);font-size:16px;color:rgba(253,246,240,.85);line-height:1.6;}
+.paraquem-lista li:last-child{border-bottom:none;}
+.chkr{width:22px;height:22px;min-width:22px;background:rgba(196,115,138,.2);border:1px solid var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+.chkr::after{content:'✓';color:var(--rose-claro);font-size:11px;font-weight:700;}
+.descubra{background:var(--creme);}
+.beneficios{list-style:none;margin-top:36px;}
+.beneficios li{display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid var(--creme2);font-size:16px;line-height:1.6;color:var(--cinza-m);}
+.beneficios li:last-child{border-bottom:none;}
+.chk{width:24px;height:24px;min-width:24px;background:var(--vinho);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.chk::after{content:'✓';color:var(--branco);font-size:12px;font-weight:700;}
+.depos{background:var(--rosa-p);}
+.depo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:44px;}
+.depo{background:var(--branco);border:1px solid rgba(196,115,138,.2);padding:32px 26px;position:relative;}
+.depo::before{content:'\201C';font-family:'Playfair Display',serif;font-size:64px;color:var(--rose-claro);position:absolute;top:8px;left:18px;line-height:1;opacity:.4;}
+.depo-antes{font-size:11px;font-weight:500;color:var(--rose);text-transform:uppercase;letter-spacing:1.5px;margin-top:22px;margin-bottom:6px;}
+.depo-depois{font-size:11px;font-weight:500;color:var(--vinho);text-transform:uppercase;letter-spacing:1.5px;margin-top:16px;margin-bottom:6px;}
+.depo-txt{font-size:15px;line-height:1.7;color:var(--cinza-m);}
+.depo-autor{font-size:13px;font-weight:500;color:var(--vinho);margin-top:16px;letter-spacing:.3px;}
+.oferta{background:var(--creme);}
+.oferta-box{background:var(--branco);border:1px solid rgba(196,115,138,.25);padding:56px 48px;text-align:center;box-shadow:0 24px 80px rgba(92,21,34,.08);}
+@media(max-width:600px){.oferta-box{padding:36px 22px;}}
+.preco-de{font-size:15px;color:var(--cinza-m);text-decoration:line-through;margin-bottom:6px;}
+.preco-por{font-family:'Playfair Display',serif;font-size:clamp(54px,8vw,84px);font-weight:900;color:var(--vinho);line-height:1;margin-bottom:6px;}
+.preco-nota{font-size:13px;color:var(--cinza-m);margin-bottom:36px;}
+.oferta-itens{list-style:none;text-align:left;margin:0 auto 36px;max-width:400px;}
+.oferta-itens li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;font-size:15px;color:var(--cinza-m);border-bottom:1px solid var(--creme2);}
+.oferta-itens li:last-child{border-bottom:none;}
+.oferta-itens li span:first-child{color:var(--rose);font-weight:700;}
+.urgencia{background:#FFF8E6;border:1px solid #E8C547;padding:12px 18px;margin-bottom:18px;font-size:14px;color:#7A5C00;font-weight:500;}
+.pressao{background:var(--vinho);padding:24px 28px;margin-bottom:18px;}
+.pressao p{font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:rgba(253,246,240,.9);line-height:1.7;margin:0;}
+.garantia{margin-top:18px;padding:18px 22px;background:#F0F7F1;border:1px solid #C8E6CC;font-size:14px;color:#2E5E38;}
+.faq{background:var(--rosa-p);}
+.faq-wrap{margin-top:36px;}
+.faq-item{border-bottom:1px solid rgba(196,115,138,.25);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-size:16px;font-weight:500;color:var(--vinho);list-style:none;}
+.faq-q::-webkit-details-marker{display:none;}
+.faq-q::after{content:'+';font-size:22px;font-weight:300;color:var(--rose);transition:transform .3s;flex-shrink:0;margin-left:16px;}
+details[open] .faq-q::after{transform:rotate(45deg);}
+.faq-a{padding:0 0 20px;font-size:15px;line-height:1.75;color:var(--cinza-m);}
+.div-line{display:flex;align-items:center;gap:16px;margin:44px 0;}
+.dl{flex:1;height:1px;background:var(--creme2);}
+.dd{width:6px;height:6px;background:var(--rose);border-radius:50%;}
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:var(--vinho);padding:15px 24px;display:flex;align-items:center;justify-content:center;gap:24px;z-index:100;transform:translateY(100%);transition:transform .4s ease;box-shadow:0 -8px 32px rgba(0,0,0,.2);}
+.sticky-bar.visible{transform:translateY(0);}
+.sticky-txt{font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:rgba(253,246,240,.8);}
+.btn-sticky{background:var(--rose);color:var(--branco);font-size:14px;font-weight:500;padding:11px 26px;border-radius:3px;text-decoration:none;white-space:nowrap;transition:background .2s;}
+.btn-sticky:hover{background:var(--rose-claro);}
+@media(max-width:600px){.sticky-txt{display:none;}}
+footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13px;color:rgba(253,246,240,.35);}
 
 /* ========================================================
    ESTILOS DO MOCKUP 3D DA CAPA - CORRIGIDOS (SEM CAIXOTE)
    ======================================================== */
-.mockup-wrapper { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; opacity: 1; }
-@media (max-width: 768px) { .mockup-wrapper { margin-top: -30px; margin-bottom: -30px; display: flex; justify-content: center; align-items: center; height: 100%; } }
+.mockup-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  opacity: 1; /* Removido animação de fade in que podia dar lag */
+}
+@media (max-width: 768px) {
+  .mockup-wrapper {
+    margin-top: -30px;
+    margin-bottom: -30px;
+    display: flex; /* Garante centralização */
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+}
 .scene { position: relative; width: 520px; height: 420px; display: flex; align-items: center; justify-content: center; }
-.book-shadow { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); width: 220px; height: 30px; background: radial-gradient(ellipse, rgba(0,0,0,0.8) 0%, transparent 70%); filter: blur(10px); }
+
+/* REVISADO: REMOVIDO ::BEFORE (O CAIXOTE DE SOMBRA ESTÁTICA) */
+/* .scene::before { ... } */
+
+/* REVISADO: SOMBRA DO CHÃO MAIS REALISTA */
+.book-shadow {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px; /* Mais estreita */
+  height: 30px;
+  background: radial-gradient(ellipse, rgba(0,0,0,0.8) 0%, transparent 70%); /* Mais escura */
+  filter: blur(10px);
+}
 .book { position: relative; width: 240px; height: 340px; transform-style: preserve-3d; transform: perspective(1200px) rotateY(-18deg) rotateX(3deg); animation: float 4s ease-in-out infinite; }
 @keyframes float { 0%, 100% { transform: perspective(1200px) rotateY(-18deg) rotateX(3deg) translateY(0); } 50% { transform: perspective(1200px) rotateY(-18deg) rotateX(3deg) translateY(-10px); } }
 .book-front { position: absolute; width: 240px; height: 340px; background: linear-gradient(160deg, #8B2438 0%, #5C1522 40%, #3A0F18 100%); border-radius: 2px 8px 8px 2px; overflow: hidden; box-shadow: 4px 0 20px rgba(0,0,0,0.5), inset -2px 0 8px rgba(0,0,0,0.3); }
@@ -88,68 +209,48 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;ba
 .book-reflection { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%) scaleY(-0.3) scaleX(0.95); transform-origin: top center; opacity: 0.2; filter: blur(3px); width: 240px; height: 340px; background: linear-gradient(160deg, #8B2438 0%, #5C1522 40%, #3A0F18 100%); border-radius: 2px 8px 8px 2px; }
 .particle { position: absolute; background: rgba(196,115,138,0.6); border-radius: 50%; animation: drift linear infinite; }
 @keyframes drift { from { opacity: 0; transform: translateY(0) translateX(0); } 10% { opacity: 1; } 90% { opacity: 1; } to { opacity: 0; transform: translateY(-120px) translateX(var(--dx, 20px)); } }
-@media (max-width: 768px) { .scene { transform: scale(0.65); margin: 0 auto; } }
 
 /* =========================================
-   ESTILOS ADICIONADOS PARA OFERTA E BÔNUS
-   ========================================= */
-.bonus-box {
-  background: #FFF8F9;
-  border: 2px dashed var(--rose);
-  padding: 24px;
-  border-radius: 8px;
-  margin: 32px 0;
-  text-align: left;
+   REVISADO: CORREÇÃO TÉCNICA DE SCALING MOBILE
+   ======================================== */
+@media (max-width: 768px) {
+    /* Em vez de redimensionar o contêiner (wrapper), 
+       redimensionamos apenas a cena inteira como uma unidade. */
+    .scene {
+        transform: scale(0.65); /* Redimensiona o livro final como uma unidade */
+        margin: 0 auto; /* Mantém centralizado */
+    }
 }
-.bonus-tag {
-  background: var(--rose);
-  color: #FFF;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 4px;
-  display: inline-block;
-  margin-bottom: 12px;
-}
-.bonus-title { font-size: 18px; font-weight: 700; color: var(--vinho); margin-bottom: 8px; }
-.cta-pulsante { display: block; width: 100%; max-width: 100%; margin: 24px auto 0; text-align: center; font-size: 22px !important; font-weight: 700 !important; padding: 26px 30px !important; animation: pulse 2s infinite; }
-@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-.whats-suporte { margin-top: 40px; padding: 20px; border-top: 1px solid var(--creme2); text-align: center; }
-.btn-whats { color: #25D366; text-decoration: none; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; }
 
-/* REVISÃO GERAL DE DESIGN */
-section{padding:96px 24px;}
-.container{max-width:760px;margin:0 auto;}
-.container-wide{max-width:1060px;margin:0 auto;}
-.eyebrow{font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:14px;}
-.titulo{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,46px);font-weight:700;color:var(--vinho);line-height:1.15;margin-bottom:28px;}
-/* ... (demais estilos originais mantidos) ... */
-.ruptura{background:var(--branco);border-top:4px solid var(--vinho);}
-.ruptura-q{font-family:'Playfair Display',serif;font-size:clamp(19px,2.6vw,27px);font-style:italic;color:var(--vinho);line-height:1.75;text-align:center;max-width:700px;margin:0 auto 32px;}
-.ruptura-resp{text-align:center;font-size:18px;font-weight:500;color:var(--vinho);border-top:1px solid var(--creme2);padding-top:28px;margin-top:28px;}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
-@media(max-width:768px){.two-col{grid-template-columns:1fr;gap:40px;}}
-.identificacao{background:var(--rosa-p);}
-.id-list{list-style:none;margin-bottom:28px;}
-.id-list li{font-size:17px;line-height:1.65;padding:15px 0 15px 28px;border-bottom:1px solid rgba(196,115,138,.2);position:relative;color:var(--cinza);}
-.id-list li::before{content:'—';position:absolute;left:0;color:var(--rose);font-weight:700;}
-.inferno{background:var(--vinho2);position:relative;}
-.oferta-box{background:var(--branco);border:1px solid rgba(196,115,138,.25);padding:56px 48px;text-align:center;box-shadow:0 24px 80px rgba(92,21,34,.08);}
-.preco-por{font-family:'Playfair Display',serif;font-size:clamp(54px,8vw,84px);font-weight:900;color:var(--vinho);line-height:1;margin-bottom:6px;}
-.faq{background:var(--rosa-p);}
-.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-size:16px;font-weight:500;color:var(--vinho);list-style:none;}
-footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13px;color:rgba(253,246,240,.35);}
-.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:var(--vinho);padding:15px 24px;display:flex;align-items:center;justify-content:center;gap:24px;z-index:100;transform:translateY(100%);transition:transform .4s ease;box-shadow:0 -8px 32px rgba(0,0,0,.2);}
-.sticky-bar.visible{transform:translateY(0);}
-.btn-sticky{background:var(--rose);color:var(--branco);font-size:14px;font-weight:500;padding:11px 26px;border-radius:3px;text-decoration:none;white-space:nowrap;transition:background .2s;}
+/* =========================================
+   ESTILOS DO CTA PULSANTE
+   ========================================= */
+.cta-pulsante {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 24px auto 0;
+  text-align: center;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  padding: 26px 30px !important;
+  animation: pulse 2s infinite;
+}
+@media (max-width: 600px) {
+  .cta-pulsante { font-size: 18px !important; padding: 20px 20px !important; }
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
 </style>
 </head>
 <body>
 
 <section class="hero">
   <div class="hero-left">
-    <span class="hero-tag">Ebook Digital · Acesso Imediato</span>
+    <span class="hero-tag">Ebook Digital · Entenda a Mente Narcisista</span>
     <h1>Você Não Era <em>Louca.</em></h1>
     <p class="hero-sub">
       Você ainda ouve a voz dele na sua cabeça dizendo que você exagerou?<br>
@@ -157,7 +258,7 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
     </p>
     <div class="hero-cta">
       <span class="hero-social">+ de 3.000 mulheres já entenderam o que aconteceu com elas</span>
-      <a href="#oferta" class="btn-p">Quero entender o que ele fez comigo — R$47</a>
+      <a href="https://go.perfectpay.com.br/PPU38CQ9AK4" class="btn-p">Quero entender o que ele fez comigo — R$47</a>
       <span class="hero-nota">Acesso imediato · Leitura no celular, tablet ou computador</span>
     </div>
   </div>
@@ -173,7 +274,9 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
           <div class="book-reflection"></div>
           <div class="book-back"></div>
           <div class="book-pages"></div>
-          <div class="book-spine"><span class="spine-text">Você Não Era Louca</span></div>
+          <div class="book-spine">
+            <span class="spine-text">Você Não Era Louca</span>
+          </div>
           <div class="book-front">
             <div class="book-gloss"></div>
             <div class="book-content">
@@ -200,7 +303,9 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
       Mas você sabe que não estava exagerando.<br>
       E em algum lugar dentro de você,<br>ainda precisa ouvir isso de alguém."
     </p>
-    <div class="ruptura-resp reveal">Esse livro foi escrito pra ser esse alguém.</div>
+    <div class="ruptura-resp reveal">
+      Esse livro foi escrito pra ser esse alguém.
+    </div>
   </div>
 </section>
 
@@ -211,14 +316,129 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
         <p class="eyebrow">Você se reconhece aqui?</p>
         <h2 class="titulo">Isso ainda está acontecendo com você?</h2>
         <ul class="id-list">
-          <li>Você ainda se pergunta onde errou? [cite: 5, 6]</li>
-          <li>Você ouviu <em>"você é muito sensível"</em> tantas vezes que acreditou? [cite: 12, 11]</li>
-          <li>Você ainda sai de discussões pedindo desculpa sem entender o porquê? [cite: 120]</li>
-          <li>Você foi perdendo a si mesma dentro daquele relacionamento? [cite: 10, 141]</li>
+          <li>Você ainda se pergunta onde errou — mesmo depois de tudo ter acabado?</li>
+          <li>Você ainda mede suas palavras com medo de parecer exagerada?</li>
+          <li>Você ouviu <em>"você é muito sensível"</em> tantas vezes que começou a acreditar?</li>
+          <li>Você ainda sai de discussões pedindo desculpa sem entender como isso aconteceu?</li>
+          <li>Você foi perdendo a si mesma dentro daquele relacionamento?</li>
+          <li>Você ainda se pergunta se o problema era você?</li>
         </ul>
-        <div class="destaque"><p>"O que aconteceu com você tem nome. Tem padrão. E não foi culpa sua — nunca foi." [cite: 16, 17]</p></div>
+        <div class="destaque">
+          <p>"O que aconteceu com você tem nome. Tem padrão. E não foi culpa sua — nunca foi."</p>
+        </div>
       </div>
-      <div class="col-img reveal from-right"><img src="img-silhueta.jpg" alt="Silhueta de mulher"></div>
+      <div class="col-img reveal from-right">
+        <img src="img-silhueta.jpg" alt="Silhueta de mulher">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="inferno">
+  <div class="container-wide" style="position:relative;z-index:2;">
+    <div class="two-col two-col reverse">
+      <div class="col-img reveal from-left">
+        <img src="img-mulher.jpg" alt="Mulher se abraçando">
+      </div>
+      <div class="reveal from-right">
+        <p class="eyebrow" style="color:var(--rose-claro);">A verdade que ninguém contou</p>
+        <h2 class="titulo">Como aceitar que a pessoa incrível pela qual você se apaixonou não existe mais?</h2>
+        <p>Porque você sentiu o amor, as gentilezas, os momentos felizes. <strong>Se você viveu tudo aquilo, como acabou?</strong></p>
+        <p>Ele te levou até o céu, te colocou num pedestal e fez você se sentir a pessoa mais especial do mundo. Mas algo aconteceu. A gentileza foi dando lugar a críticas, humilhações, tratamento de silêncio.</p>
+        <p>E você achou que tinha algo de errado com você. E não adianta questionar, tentar argumentar — porque <strong>ele sabe exatamente como te manipular pra te manter presa nesse cárcere.</strong></p>
+        <div class="inferno-quote">
+          <p>"A verdade é que você foi do céu ao inferno — e não sabe como isso aconteceu. Porque a pessoa maravilhosa nunca existiu. Sempre foi uma máscara."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="identidade">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">O que ninguém te disse</p>
+      <h2 class="titulo">Ele não te escolheu por acaso.<br>E isso muda tudo.</h2>
+      <p>O narcisista não escolhe qualquer pessoa. Ele escolhe mulheres <strong>empáticas, inteligentes, amorosas.</strong> Que sentem a dor do outro como se fosse sua. Que acreditam que amor é suficiente pra superar qualquer coisa.</p>
+      <p>Suas maiores qualidades foram usadas contra você. Sua empatia. Sua lealdade. Sua capacidade de amar sem medidas.</p>
+      <p><strong>Você não ficou porque era fraca. Você ficou porque amava de verdade.</strong> O problema é que ele não era capaz de receber esse amor.</p>
+      <div class="destaque">
+        <p>"Mulheres que passam por isso não são frágeis. São as mais fortes — e é exatamente por isso que foram escolhidas."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="paraquem">
+  <div class="container-wide" style="position:relative;z-index:2;">
+    <div class="two-col">
+      <div class="reveal from-left">
+        <p class="eyebrow" style="color:var(--rose-claro);">Este livro é pra você que</p>
+        <h2 class="titulo">Quer sair de uma vez por todas dessa confusão mental.</h2>
+        <ul class="paraquem-lista">
+          <li><span class="chkr"></span><span>Quer entender se está ou esteve em um relacionamento com um narcisista</span></li>
+          <li><span class="chkr"></span><span>Não aguenta mais a confusão mental e acha que está enlouquecendo</span></li>
+          <li><span class="chkr"></span><span>Não se reconhece mais, não sabe quem é sem ele</span></li>
+          <li><span class="chkr"></span><span>Quer parar de se culpar pelo que aconteceu</span></li>
+          <li><span class="chkr"></span><span>Quer se blindar pra nunca mais cair nessa armadilha</span></li>
+          <li><span class="chkr"></span><span>Quer mudar, mas não sabe por onde começar</span></li>
+        </ul>
+      </div>
+      <div class="col-img reveal from-right">
+        <img src="img-teia.jpg" alt="Teia de aranha">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="descubra">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">O que você vai aprender</p>
+      <h2 class="titulo">Em menos de 2 horas, tudo vai fazer sentido.</h2>
+    </div>
+    <ul class="beneficios">
+      <li class="reveal"><span class="chk"></span><span>Por que ele foi tão perfeito no começo — e o que aquilo realmente significava sobre as intenções dele</span></li>
+      <li class="reveal"><span class="chk"></span><span>O que é gaslighting e como foi usado contra você sistematicamente, sem que você percebesse</span></li>
+      <li class="reveal"><span class="chk"></span><span>Por que você ficou mesmo quando doía — a resposta neurológica que vai tirar de vez a culpa dos seus ombros</span></li>
+      <li class="reveal"><span class="chk"></span><span>Os 9 sinais que estavam ali desde o início — você vai reconhecer cada um deles</span></li>
+      <li class="reveal"><span class="chk"></span><span>Por que você foi escolhida — e o que isso revela sobre suas qualidades mais profundas</span></li>
+      <li class="reveal"><span class="chk"></span><span>Como começar a se libertar sem depender do fechamento que ele nunca vai te dar</span></li>
+      <li class="reveal"><span class="chk"></span><span>Quem você é sem ele — e os exercícios práticos pra reencontrar essa mulher</span></li>
+    </ul>
+    <div class="div-line"><div class="dl"></div><div class="dd"></div><div class="dl"></div></div>
+    <p class="reveal" style="font-size:16px;color:var(--cinza-m);line-height:1.75;text-align:center;">O livro inclui ainda um <strong>quiz completo</strong> — "Seu ex era narcisista?" — com análise personalizada do seu resultado.</p>
+  </div>
+</section>
+
+<section class="depos">
+  <div class="container-wide">
+    <div style="text-align:center;max-width:560px;margin:0 auto 16px;" class="reveal">
+      <p class="eyebrow">O que estão dizendo</p>
+      <h2 class="titulo">Antes e depois de ler.</h2>
+    </div>
+    <div class="depo-grid">
+      <div class="depo reveal">
+        <p class="depo-antes">Antes</p>
+        <p class="depo-txt">"Eu passei 2 anos achando que o problema era eu. Que eu era instável, sensível demais, difícil de amar."</p>
+        <p class="depo-depois">Depois</p>
+        <p class="depo-txt">"Li de uma vez. Chorei em cada capítulo. Mas foi um choro de alívio — pela primeira vez senti que não estava louca."</p>
+        <p class="depo-autor">— Fernanda, 34 anos</p>
+      </div>
+      <div class="depo reveal" style="transition-delay:.15s">
+        <p class="depo-antes">Antes</p>
+        <p class="depo-txt">"Ficava repassando cada discussão tentando entender onde tinha errado. Sempre achei que o problema era eu."</p>
+        <p class="depo-depois">Depois</p>
+        <p class="depo-txt">"O capítulo 5 mudou tudo. Eu parei de me culpar. Finalmente entendi que fui condicionada a me sentir assim."</p>
+        <p class="depo-autor">— Camila, 41 anos</p>
+      </div>
+      <div class="depo reveal" style="transition-delay:.3s">
+        <p class="depo-antes">Antes</p>
+        <p class="depo-txt">"Tentei explicar pra minha família o que aconteceu. Ninguém entendia. Parecia loucura mesmo."</p>
+        <p class="depo-depois">Depois</p>
+        <p class="depo-txt">"Esse livro colocou palavras no que eu não conseguia explicar. Comprei achando que era mais do mesmo. Não é."</p>
+        <p class="depo-autor">— Juliana, 29 anos</p>
+      </div>
     </div>
   </div>
 </section>
@@ -228,62 +448,78 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
     <div class="oferta-box reveal">
       <p class="eyebrow">Acesso imediato</p>
       <h2 class="titulo" style="margin-bottom:36px;">Você Não Era Louca</h2>
-      
-      <ul class="oferta-itens" style="list-style:none; text-align:left; max-width:450px; margin:0 auto;">
-        <li style="padding:10px 0; border-bottom:1px solid var(--creme2); font-size:15px;"><span style="color:var(--rose); font-weight:700; margin-right:10px;">✔</span><strong>Guia Direto ao Ponto:</strong> 9 capítulos para ler em menos de 2 horas. [cite: 24, 290]</li>
-        <li style="padding:10px 0; border-bottom:1px solid var(--creme2); font-size:15px;"><span style="color:var(--rose); font-weight:700; margin-right:10px;">✔</span><strong>Mapa da Clareza:</strong> Entenda o ciclo da manipulação e o vínculo do trauma. [cite: 95, 154]</li>
-        <li style="padding:10px 0; border-bottom:1px solid var(--creme2); font-size:15px;"><span style="color:var(--rose); font-weight:700; margin-right:10px;">✔</span><strong>Exercícios de Resgate:</strong> 3 práticas para reencontrar quem você era antes dele. [cite: 258]</li>
+      <ul class="oferta-itens">
+        <li><span>✔</span><span>Ebook completo — 9 capítulos</span></li>
+        <li><span>✔</span><span>Quiz exclusivo "Seu ex era narcisista?" com análise personalizada</span></li>
+        <li><span>✔</span><span>Leitura no celular, tablet ou computador</span></li>
+        <li><span>✔</span><span>Acesso imediato após o pagamento</span></li>
       </ul>
-
-      <div class="bonus-box">
-        <span class="bonus-tag">Presente Exclusivo</span>
-        <div class="bonus-title">BÔNUS: Quiz "Seu ex era narcisista?"</div>
-        <p style="font-size:14px; color:var(--cinza-m); line-height:1.5;">Uma ferramenta de autoanálise com 10 perguntas cruciais para você tirar a prova real e acabar com a dúvida de uma vez por todas. </p>
-      </div>
-
-      <p class="preco-de" style="text-decoration:line-through; color:var(--cinza-m); font-size:15px;">De R$97</p>
+      <p class="preco-de">De R$97</p>
       <p class="preco-por">R$47</p>
-      <p style="font-size:13px; margin-bottom:24px;">pagamento único · acesso vitalício</p>
+      <p class="preco-nota">pagamento único · sem assinatura</p>
+      <div class="urgencia">⏳ <strong>Preço promocional de lançamento.</strong> Pode voltar a R$97 a qualquer momento.</div>
       
-      <a href="https://go.perfectpay.com.br/PPU38CQ9AK4" class="btn-p cta-pulsante">QUERO A VERDADE AGORA</a>
+      <a href="https://go.perfectpay.com.br/PPU38CQ9AK4" class="btn-p cta-pulsante">QUERO A VERDADE AGORA — R$47</a>
       
-      <div class="garantia" style="margin-top:24px; padding:15px; background:#F0F7F1; border-radius:4px; font-size:13px; color:#2E5E38;">
-        🛡️ <strong>Garantia Incondicional de 7 Dias.</strong> Se você ler e sentir que não valeu, devolvo seu dinheiro sem perguntas.
+      <div class="pressao" style="margin-top: 24px;">
+        <p>"Ignorar isso agora é continuar presa nisso. Ou você entende o que aconteceu com você hoje — ou repete com o próximo."</p>
       </div>
+      <div class="garantia">🛡️ <strong>Garantia de 7 dias.</strong> Se você ler e sentir que não valeu, devolvo cada centavo. Sem perguntas.</div>
     </div>
   </div>
 </section>
 
 <section class="faq">
   <div class="container">
-    <h2 class="titulo" style="text-align:center;">Dúvidas Frequentes</h2>
-    <div class="faq-wrap" style="margin-top:30px;">
-      <details style="border-bottom:1px solid rgba(0,0,0,0.1); padding:15px 0;"><summary style="cursor:pointer; font-weight:500;">Como recebo o livro?</summary><p style="padding-top:10px; font-size:14px;">Imediatamente após a aprovação do pagamento no seu e-mail.</p></details>
-      <details style="border-bottom:1px solid rgba(0,0,0,0.1); padding:15px 0;"><summary style="cursor:pointer; font-weight:500;">O pagamento é seguro?</summary><p style="padding-top:10px; font-size:14px;">Sim, processado pela PerfectPay com criptografia de ponta a ponta.</p></details>
+    <div class="reveal">
+      <p class="eyebrow">Perguntas frequentes</p>
+      <h2 class="titulo">Ainda com dúvidas?</h2>
     </div>
-
-    <div class="whats-suporte reveal">
-      <p style="font-size:14px; margin-bottom:10px;">Ainda tem alguma dúvida ou medo?</p>
-      <a href="https://wa.me/SEU_NUMERO_AQUI" class="btn-whats">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-        Falar com o suporte no WhatsApp
-      </a>
+    <div class="faq-wrap">
+      <details class="faq-item reveal">
+        <summary class="faq-q">Como vou receber o livro?</summary>
+        <p class="faq-a">Após o pagamento aprovado, você recebe um email com o link para baixar o PDF imediatamente. Funciona em qualquer celular, tablet ou computador.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">Precisa ter internet pra ler?</summary>
+        <p class="faq-a">Não. Após baixar o PDF, você pode ler offline quando quiser, onde quiser.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">E se eu ainda estiver no relacionamento? Serve pra mim?</summary>
+        <p class="faq-a">Sim. O livro foi feito tanto pra quem já saiu quanto pra quem ainda está dentro e sente que algo está errado. Entender o que está acontecendo é o primeiro passo pra qualquer decisão.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">Tenho medo de entender e sofrer mais.</summary>
+        <p class="faq-a">É natural sentir isso. Mas a confusão dói mais do que a clareza. Saber a verdade não vai aumentar sua dor — vai dar um nome pra ela. E nomear é o começo de curar.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">E se não gostar?</summary>
+        <p class="faq-a">Você tem 7 dias de garantia total. Se ler e sentir que não valeu, basta entrar em contato e devolvemos cada centavo. Sem burocracia, sem perguntas.</p>
+      </details>
     </div>
   </div>
 </section>
 
 <footer>
   <p>© 2025 Você Não Era Louca · Todos os direitos reservados</p>
+  <p style="margin-top:8px;">Este produto é 100% digital. Após o pagamento, o acesso é liberado imediatamente.</p>
 </footer>
 
 <div class="sticky-bar" id="stickyBar">
-  <a href="#oferta" class="btn-sticky">QUERO A VERDADE — R$47</a>
+  <span class="sticky-txt">Ou você entende hoje, ou repete amanhã.</span>
+  <a href="https://go.perfectpay.com.br/PPU38CQ9AK4" class="btn-sticky">Quero a verdade — R$47</a>
 </div>
 
 <script>
 const sticky = document.getElementById('stickyBar');
-window.addEventListener('scroll', () => { sticky.classList.toggle('visible', window.scrollY > 600); });
-const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+window.addEventListener('scroll', () => {
+  sticky.classList.toggle('visible', window.scrollY > 600);
+});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
