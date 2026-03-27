@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Você Não Era Louca — O livro que ninguém te deu quando você mais precisava</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -20,57 +20,281 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=3226221460872434&ev=PageView&noscript=1"
 /></noscript>
+
 <style>
+/* ============================
+   VARIÁVEIS & RESET
+   ============================ */
 :root {
-  --vinho: #5C1522;
-  --vinho2: #3A0F18;
+  --vinho:       #5C1522;
+  --vinho2:      #3A0F18;
   --vinho-claro: #8B2438;
-  --rose: #C4738A;
-  --rose-claro: #E8A8B8;
-  --creme: #FDF6F0;
-  --creme2: #F2E4D8;
-  --cinza: #2C1A1E;
-  --cinza-m: #6B5560;
-  --branco: #FFFFFF;
-  --rosa-p: #FBF0F3;
+  --rose:        #C4738A;
+  --rose-claro:  #E8A8B8;
+  --creme:       #FDF6F0;
+  --creme2:      #F2E4D8;
+  --cinza:       #2C1A1E;
+  --cinza-m:     #6B5560;
+  --branco:      #FFFFFF;
+  --rosa-p:      #FBF0F3;
+  --verde-ok:    #2E5E38;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--creme);color:var(--cinza);overflow-x:hidden;}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.35;}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:0.35;}
+
+/* ============================
+   ANIMAÇÕES
+   ============================ */
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease;}
 .reveal.from-left{transform:translateX(-60px);}
 .reveal.from-right{transform:translateX(60px);}
 .reveal.visible{opacity:1;transform:translate(0,0);}
-.hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;position:relative;overflow:hidden;}
-@media(max-width:768px){.hero{grid-template-columns:1fr;}}
-.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#2A0810 0%,#5C1522 40%,#8B2438 100%);z-index:0;}
-.hero-left{position:relative;z-index:2;padding:100px 60px 100px 80px;display:flex;flex-direction:column;justify-content:center;}
-@media(max-width:768px){.hero-left{padding:80px 24px 40px;}}
-.hero-tag{display:inline-block;font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--rose-claro);border:1px solid rgba(196,115,138,.4);padding:5px 16px;border-radius:40px;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease .2s forwards;width:fit-content;}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(46px,5.5vw,82px);font-weight:900;color:var(--branco);line-height:1.0;margin-bottom:24px;opacity:0;animation:fadeUp .8s ease .4s forwards;}
-.hero h1 em{font-style:italic;color:var(--rose-claro);}
-.hero-sub{font-size:clamp(16px,1.6vw,19px);font-weight:300;color:rgba(253,246,240,.82);line-height:1.85;margin-bottom:40px;opacity:0;animation:fadeUp .8s ease .6s forwards;max-width:520px;}
-.hero-sub strong{color:var(--rose-claro);font-weight:500;}
-.hero-cta{opacity:0;animation:fadeUp .8s ease .8s forwards;}
-.btn-p{display:inline-block;background:linear-gradient(135deg,var(--rose) 0%,#A85070 100%);color:var(--branco);font-size:16px;font-weight:500;padding:18px 40px;border-radius:3px;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 32px rgba(92,21,34,.5);}
-.btn-p:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(92,21,34,.6);}
-.hero-social{display:block;font-size:12px;color:rgba(196,115,138,.7);letter-spacing:1px;margin-bottom:14px;}
-.hero-nota{display:block;margin-top:12px;font-size:13px;color:rgba(253,246,240,.4);}
-.hero-right{position:relative;z-index:2;overflow:hidden;}
-@media(max-width:768px){.hero-right{height:360px;}}
-.hero-right img{width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0;animation:imgFade 1.2s ease .5s forwards;filter:brightness(.75) saturate(1.2);}
-.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--vinho2) 0%,transparent 40%);}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 @keyframes imgFade{from{opacity:0;}to{opacity:1;}}
-section{padding:96px 24px;}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.04);}}
+@keyframes float{0%,100%{transform:perspective(1200px) rotateY(-18deg) rotateX(3deg) translateY(0);}50%{transform:perspective(1200px) rotateY(-18deg) rotateX(3deg) translateY(-10px);}}
+@keyframes drift{from{opacity:0;transform:translateY(0) translateX(0);}10%{opacity:1;}90%{opacity:1;}to{opacity:0;transform:translateY(-120px) translateX(var(--dx,20px));}}
+@keyframes waBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+@keyframes shimmer{0%{background-position:-400px 0;}100%{background-position:400px 0;}}
+
+/* ============================
+   BARRA DE CREDENCIAL (TOPO)
+   ============================ */
+.credbar{
+  width:100%;
+  background:var(--vinho2);
+  border-bottom:1px solid rgba(196,115,138,.25);
+  padding:10px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  position:relative;
+  z-index:50;
+}
+.credbar-author{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.credbar-photo{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:center top;
+  border:2px solid var(--rose);
+}
+.credbar-info{
+  display:flex;
+  flex-direction:column;
+}
+.credbar-name{
+  font-size:14px;
+  font-weight:600;
+  color:var(--branco);
+  letter-spacing:.3px;
+}
+.credbar-role{
+  font-size:11px;
+  color:var(--rose-claro);
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+.credbar-sep{
+  width:1px;
+  height:36px;
+  background:rgba(196,115,138,.3);
+}
+.credbar-social{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:13px;
+  color:rgba(253,246,240,.75);
+}
+.credbar-social strong{
+  color:var(--rose-claro);
+  font-size:15px;
+  font-weight:700;
+}
+@media(max-width:480px){.credbar-sep{display:none;}}
+
+/* ============================
+   HERO
+   ============================ */
+.hero{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:55% 45%;
+  position:relative;
+  overflow:hidden;
+}
+@media(max-width:768px){.hero{grid-template-columns:1fr;}}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,#2A0810 0%,#5C1522 40%,#8B2438 100%);
+  z-index:0;
+}
+.hero-left{
+  position:relative;
+  z-index:2;
+  padding:80px 60px 80px 80px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+@media(max-width:768px){.hero-left{padding:60px 24px 40px;}}
+.hero-tag{
+  display:inline-block;
+  font-size:10px;font-weight:500;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--rose-claro);
+  border:1px solid rgba(196,115,138,.4);
+  padding:5px 16px;border-radius:40px;
+  margin-bottom:28px;
+  opacity:0;animation:fadeUp .8s ease .2s forwards;
+  width:fit-content;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(44px,5.5vw,80px);
+  font-weight:900;color:var(--branco);
+  line-height:1.0;margin-bottom:20px;
+  opacity:0;animation:fadeUp .8s ease .4s forwards;
+}
+.hero h1 em{font-style:italic;color:var(--rose-claro);}
+.hero-sub{
+  font-size:clamp(16px,1.6vw,18px);
+  font-weight:300;
+  color:rgba(253,246,240,.82);
+  line-height:1.85;
+  margin-bottom:36px;
+  opacity:0;animation:fadeUp .8s ease .6s forwards;
+  max-width:500px;
+}
+.hero-sub strong{color:var(--rose-claro);font-weight:500;}
+.hero-cta{opacity:0;animation:fadeUp .8s ease .8s forwards;}
+
+/* Prova social no hero */
+.hero-proof{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:16px;
+}
+.hero-proof-avatars{
+  display:flex;
+}
+.hero-proof-avatars span{
+  width:32px;height:32px;border-radius:50%;
+  border:2px solid var(--vinho);
+  background:var(--rose);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:var(--branco);font-weight:700;
+  margin-left:-8px;
+}
+.hero-proof-avatars span:first-child{margin-left:0;}
+.hero-proof-text{
+  font-size:13px;
+  color:rgba(253,246,240,.75);
+  line-height:1.4;
+}
+.hero-proof-text strong{color:var(--rose-claro);}
+
+.btn-p{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--rose) 0%,#A85070 100%);
+  color:var(--branco);
+  font-size:16px;font-weight:600;
+  padding:18px 40px;
+  border-radius:3px;
+  text-decoration:none;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 8px 32px rgba(92,21,34,.5);
+  letter-spacing:.3px;
+}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(92,21,34,.6);}
+.hero-parcel{
+  display:block;
+  font-size:12px;
+  color:rgba(196,115,138,.7);
+  letter-spacing:.5px;
+  margin-top:10px;
+}
+.hero-nota{
+  display:block;
+  margin-top:6px;
+  font-size:12px;
+  color:rgba(253,246,240,.35);
+}
+
+.hero-right{position:relative;z-index:2;overflow:hidden;}
+@media(max-width:768px){.hero-right{height:360px;}}
+
+/* ============================
+   MOCKUP 3D
+   ============================ */
+.mockup-wrapper{
+  display:flex;align-items:center;justify-content:center;
+  width:100%;height:100%;
+}
+@media(max-width:768px){
+  .mockup-wrapper{margin-top:-30px;margin-bottom:-30px;}
+}
+.scene{position:relative;width:520px;height:420px;display:flex;align-items:center;justify-content:center;}
+.book-shadow{
+  position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+  width:220px;height:30px;
+  background:radial-gradient(ellipse,rgba(0,0,0,0.8) 0%,transparent 70%);
+  filter:blur(10px);
+}
+.book{
+  position:relative;width:240px;height:340px;
+  transform-style:preserve-3d;
+  transform:perspective(1200px) rotateY(-18deg) rotateX(3deg);
+  animation:float 4s ease-in-out infinite;
+}
+.book-front{
+  position:absolute;width:240px;height:340px;
+  background:linear-gradient(160deg,#8B2438 0%,#5C1522 40%,#3A0F18 100%);
+  border-radius:2px 8px 8px 2px;overflow:hidden;
+  box-shadow:4px 0 20px rgba(0,0,0,0.5),inset -2px 0 8px rgba(0,0,0,0.3);
+}
+.book-front::before{content:'';position:absolute;width:200px;height:200px;border:1px solid rgba(196,115,138,0.25);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);}
+.book-front::after{content:'';position:absolute;width:150px;height:150px;border:1px solid rgba(196,115,138,0.18);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);}
+.book-gloss{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.08) 0%,transparent 50%);border-radius:inherit;}
+.book-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 20px;text-align:center;}
+.book-tag{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(242,196,207,0.6);border:1px solid rgba(196,115,138,0.3);padding:4px 12px;border-radius:20px;margin-bottom:18px;}
+.book-title{font-family:Georgia,serif;font-size:22px;font-weight:700;color:#FFF;line-height:1.15;margin-bottom:10px;}
+.book-title em{font-style:italic;color:#F2C4CF;}
+.book-divider{width:40px;height:1px;background:rgba(196,115,138,0.5);margin:12px auto;}
+.book-subtitle{font-size:9px;font-style:italic;color:rgba(242,196,207,0.65);line-height:1.6;letter-spacing:.3px;max-width:160px;}
+.book-dot{width:6px;height:6px;background:#C4738A;border-radius:50%;margin:14px auto;box-shadow:0 0 8px rgba(196,115,138,0.6);}
+.book-spine{position:absolute;left:-18px;top:0;width:20px;height:340px;background:linear-gradient(to right,#2A0810,#4A1020);border-radius:4px 0 0 4px;transform-origin:right center;transform:rotateY(-90deg) translateX(-10px);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.book-spine::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.4),transparent);}
+.spine-text{font-family:Georgia,serif;font-size:8px;color:rgba(242,196,207,0.5);writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:1px;transform:rotate(180deg);}
+.book-back{position:absolute;width:240px;height:340px;background:linear-gradient(160deg,#3A0F18 0%,#2A0810 100%);border-radius:2px 8px 8px 2px;transform:translateZ(-8px);box-shadow:-4px 4px 20px rgba(0,0,0,0.6);}
+.book-pages{position:absolute;right:-6px;top:4px;width:8px;height:332px;background:repeating-linear-gradient(to bottom,#F2E4D8 0px,#F2E4D8 2px,#E8D0C4 2px,#E8D0C4 3px);border-radius:0 2px 2px 0;opacity:.8;}
+.book-reflection{position:absolute;bottom:-30px;left:50%;transform:translateX(-50%) scaleY(-0.3) scaleX(0.95);transform-origin:top center;opacity:.2;filter:blur(3px);width:240px;height:340px;background:linear-gradient(160deg,#8B2438 0%,#5C1522 40%,#3A0F18 100%);border-radius:2px 8px 8px 2px;}
+.particle{position:absolute;background:rgba(196,115,138,0.6);border-radius:50%;animation:drift linear infinite;}
+@media(max-width:768px){.scene{transform:scale(0.65);margin:0 auto;}}
+
+/* ============================
+   SEÇÕES GLOBAIS
+   ============================ */
+section{padding:88px 24px;}
 .container{max-width:760px;margin:0 auto;}
 .container-wide{max-width:1060px;margin:0 auto;}
-.eyebrow{font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:14px;}
-.titulo{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,46px);font-weight:700;color:var(--vinho);line-height:1.15;margin-bottom:28px;}
-.ruptura{background:var(--branco);border-top:4px solid var(--vinho);}
-.ruptura-q{font-family:'Playfair Display',serif;font-size:clamp(19px,2.6vw,27px);font-style:italic;color:var(--vinho);line-height:1.75;text-align:center;max-width:700px;margin:0 auto 32px;}
-.ruptura-resp{text-align:center;font-size:18px;font-weight:500;color:var(--vinho);border-top:1px solid var(--creme2);padding-top:28px;margin-top:28px;}
+.eyebrow{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:12px;}
+.titulo{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,44px);font-weight:700;color:var(--vinho);line-height:1.15;margin-bottom:28px;}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
 @media(max-width:768px){.two-col{grid-template-columns:1fr;gap:40px;}}
 .two-col.reverse .col-img{order:-1;}
@@ -79,23 +303,49 @@ section{padding:96px 24px;}
 .col-img img{width:100%;display:block;filter:brightness(.8) saturate(1.15);transition:transform .6s ease;}
 .col-img:hover img{transform:scale(1.03);}
 .col-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(58,15,24,.35) 100%);}
+.div-line{display:flex;align-items:center;gap:16px;margin:44px 0;}
+.dl{flex:1;height:1px;background:var(--creme2);}
+.dd{width:6px;height:6px;background:var(--rose);border-radius:50%;}
+.destaque{background:var(--branco);border-left:4px solid var(--vinho);padding:22px 26px;margin-top:24px;}
+.destaque p{font-family:'Playfair Display',serif;font-size:clamp(16px,2vw,20px);font-style:italic;color:var(--vinho);line-height:1.55;}
+
+/* ============================
+   RUPTURA
+   ============================ */
+.ruptura{background:var(--branco);border-top:4px solid var(--vinho);}
+.ruptura-q{font-family:'Playfair Display',serif;font-size:clamp(18px,2.4vw,26px);font-style:italic;color:var(--vinho);line-height:1.8;text-align:center;max-width:680px;margin:0 auto 32px;}
+.ruptura-resp{text-align:center;font-size:18px;font-weight:600;color:var(--vinho);border-top:1px solid var(--creme2);padding-top:28px;margin-top:28px;}
+
+/* ============================
+   IDENTIFICAÇÃO
+   ============================ */
 .identificacao{background:var(--rosa-p);}
 .id-list{list-style:none;margin-bottom:28px;}
 .id-list li{font-size:17px;line-height:1.65;padding:15px 0 15px 28px;border-bottom:1px solid rgba(196,115,138,.2);position:relative;color:var(--cinza);}
 .id-list li:last-child{border-bottom:none;}
 .id-list li::before{content:'—';position:absolute;left:0;color:var(--rose);font-weight:700;}
-.destaque{background:var(--branco);border-left:4px solid var(--vinho);padding:22px 26px;margin-top:24px;}
-.destaque p{font-family:'Playfair Display',serif;font-size:clamp(17px,2vw,21px);font-style:italic;color:var(--vinho);line-height:1.55;}
+
+/* ============================
+   SEÇÃO ESCURA (INFERNO)
+   ============================ */
 .inferno{background:var(--vinho2);position:relative;}
 .inferno::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 80% at 70% 50%,#8B2438 0%,#3A0F18 60%);}
 .inferno .titulo{color:var(--branco);}
 .inferno p{color:rgba(253,246,240,.82);font-size:17px;line-height:1.8;margin-bottom:18px;}
 .inferno strong{color:var(--rose-claro);}
 .inferno-quote{border:1px solid rgba(196,115,138,.3);padding:26px 30px;margin:28px 0;}
-.inferno-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(18px,2vw,22px);color:var(--rose-claro);margin:0;line-height:1.6;}
+.inferno-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(17px,2vw,22px);color:var(--rose-claro);margin:0;line-height:1.6;}
+
+/* ============================
+   IDENTIDADE
+   ============================ */
 .identidade{background:var(--creme);}
 .identidade p{font-size:17px;line-height:1.8;color:var(--cinza-m);margin-bottom:18px;}
 .identidade strong{color:var(--vinho);}
+
+/* ============================
+   PARA QUEM
+   ============================ */
 .paraquem{background:var(--vinho);position:relative;}
 .paraquem::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 100% at 100% 50%,#8B2438 0%,#3A0F18 70%);}
 .paraquem .titulo{color:var(--branco);}
@@ -104,161 +354,405 @@ section{padding:96px 24px;}
 .paraquem-lista li:last-child{border-bottom:none;}
 .chkr{width:22px;height:22px;min-width:22px;background:rgba(196,115,138,.2);border:1px solid var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:2px;}
 .chkr::after{content:'✓';color:var(--rose-claro);font-size:11px;font-weight:700;}
+
+/* ============================
+   DESCUBRA (BENEFÍCIOS)
+   ============================ */
 .descubra{background:var(--creme);}
 .beneficios{list-style:none;margin-top:36px;}
 .beneficios li{display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid var(--creme2);font-size:16px;line-height:1.6;color:var(--cinza-m);}
 .beneficios li:last-child{border-bottom:none;}
 .chk{width:24px;height:24px;min-width:24px;background:var(--vinho);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px;}
 .chk::after{content:'✓';color:var(--branco);font-size:12px;font-weight:700;}
+
+/* ============================
+   DEPOIMENTOS
+   ============================ */
 .depos{background:var(--rosa-p);}
 .depo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:44px;}
 .depo{background:var(--branco);border:1px solid rgba(196,115,138,.2);padding:32px 26px;position:relative;}
 .depo::before{content:'\201C';font-family:'Playfair Display',serif;font-size:64px;color:var(--rose-claro);position:absolute;top:8px;left:18px;line-height:1;opacity:.4;}
-.depo-antes{font-size:11px;font-weight:500;color:var(--rose);text-transform:uppercase;letter-spacing:1.5px;margin-top:22px;margin-bottom:6px;}
-.depo-depois{font-size:11px;font-weight:500;color:var(--vinho);text-transform:uppercase;letter-spacing:1.5px;margin-top:16px;margin-bottom:6px;}
+.depo-antes{font-size:11px;font-weight:600;color:var(--rose);text-transform:uppercase;letter-spacing:1.5px;margin-top:22px;margin-bottom:6px;}
+.depo-depois{font-size:11px;font-weight:600;color:var(--vinho);text-transform:uppercase;letter-spacing:1.5px;margin-top:16px;margin-bottom:6px;}
 .depo-txt{font-size:15px;line-height:1.7;color:var(--cinza-m);}
-.depo-autor{font-size:13px;font-weight:500;color:var(--vinho);margin-top:16px;letter-spacing:.3px;}
+.depo-autor{font-size:13px;font-weight:600;color:var(--vinho);margin-top:16px;letter-spacing:.3px;}
+/* Estrelas */
+.depo-stars{color:#D4A017;font-size:13px;margin-top:14px;letter-spacing:2px;}
+
+/* ============================
+   SEÇÃO DE AUTORIDADE (NOVA)
+   ============================ */
+.autoridade{
+  background:var(--vinho2);
+  position:relative;
+  overflow:hidden;
+}
+.autoridade::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse 80% 120% at 0% 60%,#8B2438 0%,#2A0810 65%);
+}
+.autor-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  align-items:stretch;
+  position:relative;
+  z-index:2;
+}
+@media(max-width:768px){.autor-grid{grid-template-columns:1fr;}}
+.autor-foto-col{
+  position:relative;
+  overflow:hidden;
+  min-height:500px;
+}
+.autor-foto-col img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+  filter:brightness(.9) saturate(1.05);
+}
+.autor-foto-col::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to right, transparent 50%, var(--vinho2) 100%),
+             linear-gradient(to top, rgba(42,8,16,.6) 0%, transparent 40%);
+}
+@media(max-width:768px){
+  .autor-foto-col{min-height:320px;}
+  .autor-foto-col::after{
+    background:linear-gradient(to bottom,transparent 50%,var(--vinho2) 100%);
+  }
+}
+.autor-texto-col{
+  padding:64px 56px 64px 48px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+@media(max-width:768px){.autor-texto-col{padding:40px 24px;}}
+.autor-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(196,115,138,.15);
+  border:1px solid rgba(196,115,138,.35);
+  border-radius:40px;
+  padding:6px 16px;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--rose-claro);
+  margin-bottom:24px;
+  width:fit-content;
+}
+.autor-nome{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(28px,3.5vw,44px);
+  font-weight:700;
+  color:var(--branco);
+  line-height:1.1;
+  margin-bottom:8px;
+}
+.autor-titulo-cargo{
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--rose);
+  margin-bottom:28px;
+}
+.autor-linha{
+  width:48px;height:2px;
+  background:linear-gradient(to right,var(--rose),transparent);
+  margin-bottom:28px;
+}
+.autor-bio{
+  font-size:16px;
+  line-height:1.85;
+  color:rgba(253,246,240,.82);
+  margin-bottom:16px;
+}
+.autor-bio strong{color:var(--rose-claro);}
+.autor-quote{
+  border-left:3px solid var(--rose);
+  padding:16px 20px;
+  margin-top:24px;
+  background:rgba(196,115,138,.08);
+}
+.autor-quote p{
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-size:15px;
+  color:var(--rose-claro);
+  line-height:1.6;
+  margin:0;
+}
+
+/* ============================
+   OFERTA
+   ============================ */
 .oferta{background:var(--creme);}
-.oferta-box{background:var(--branco);border:1px solid rgba(196,115,138,.25);padding:56px 48px;text-align:center;box-shadow:0 24px 80px rgba(92,21,34,.08);}
+.oferta-box{
+  background:var(--branco);
+  border:1px solid rgba(196,115,138,.25);
+  padding:56px 48px;
+  text-align:center;
+  box-shadow:0 24px 80px rgba(92,21,34,.08);
+}
 @media(max-width:600px){.oferta-box{padding:36px 22px;}}
-.preco-de{font-size:15px;color:var(--cinza-m);text-decoration:line-through;margin-bottom:6px;}
-.preco-por{font-family:'Playfair Display',serif;font-size:clamp(54px,8vw,84px);font-weight:900;color:var(--vinho);line-height:1;margin-bottom:6px;}
-.preco-nota{font-size:13px;color:var(--cinza-m);margin-bottom:36px;}
-.oferta-itens{list-style:none;text-align:left;margin:0 auto 36px;max-width:400px;}
+.preco-de{font-size:15px;color:var(--cinza-m);text-decoration:line-through;margin-bottom:4px;}
+.preco-por{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(54px,8vw,84px);
+  font-weight:900;color:var(--vinho);
+  line-height:1;margin-bottom:4px;
+}
+.preco-parcel{
+  font-size:14px;
+  color:var(--rose);
+  font-weight:600;
+  margin-bottom:36px;
+  letter-spacing:.3px;
+}
+.oferta-itens{list-style:none;text-align:left;margin:0 auto 36px;max-width:420px;}
 .oferta-itens li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;font-size:15px;color:var(--cinza-m);border-bottom:1px solid var(--creme2);}
 .oferta-itens li:last-child{border-bottom:none;}
 .oferta-itens li span:first-child{color:var(--rose);font-weight:700;}
-.urgencia{background:#FFF8E6;border:1px solid #E8C547;padding:12px 18px;margin-bottom:18px;font-size:14px;color:#7A5C00;font-weight:500;}
-.pressao{background:var(--vinho);padding:24px 28px;margin-bottom:18px;}
-.pressao p{font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:rgba(253,246,240,.9);line-height:1.7;margin:0;}
-.garantia{margin-top:18px;padding:18px 22px;background:#F0F7F1;border:1px solid #C8E6CC;font-size:14px;color:#2E5E38;}
+/* Contador */
+.countdown-wrap{
+  margin:0 auto 20px;
+  background:#FFF8E6;
+  border:1px solid #E8C547;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  max-width:460px;
+}
+.countdown-label{
+  font-size:13px;
+  color:#7A5C00;
+  font-weight:500;
+}
+.countdown-timer{
+  display:flex;
+  gap:8px;
+}
+.cd-block{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2px;
+}
+.cd-num{
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  font-weight:700;
+  color:#5C1522;
+  line-height:1;
+  min-width:32px;
+  text-align:center;
+}
+.cd-lbl{
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:#9A7C00;
+}
+.cd-sep{
+  font-size:18px;
+  font-weight:700;
+  color:#B8A020;
+  margin-top:2px;
+  line-height:1.2;
+}
+/* CTA principal */
+.btn-cta-main{
+  display:block;
+  width:100%;
+  max-width:480px;
+  margin:24px auto 0;
+  text-align:center;
+  font-size:20px !important;
+  font-weight:700 !important;
+  padding:24px 30px !important;
+  animation:pulse 2.2s ease-in-out infinite;
+  letter-spacing:.5px;
+  border-radius:3px;
+  line-height:1.3;
+}
+@media(max-width:600px){.btn-cta-main{font-size:17px !important;padding:20px 20px !important;}}
+.pressao{
+  background:var(--vinho);
+  padding:22px 28px;
+  margin-top:24px;
+  margin-bottom:16px;
+}
+.pressao p{
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-size:16px;
+  color:rgba(253,246,240,.9);
+  line-height:1.7;
+  margin:0;
+}
+.garantia{
+  padding:18px 22px;
+  background:#F0F7F1;
+  border:1px solid #C8E6CC;
+  font-size:14px;
+  color:var(--verde-ok);
+  margin-top:0;
+}
+/* Social counter na oferta */
+.oferta-social{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  font-size:13px;
+  color:var(--cinza-m);
+  margin-top:12px;
+}
+.oferta-social strong{color:var(--vinho);}
+
+/* ============================
+   FAQ
+   ============================ */
 .faq{background:var(--rosa-p);}
 .faq-wrap{margin-top:36px;}
 .faq-item{border-bottom:1px solid rgba(196,115,138,.25);}
-.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-size:16px;font-weight:500;color:var(--vinho);list-style:none;}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 0;cursor:pointer;
+  font-size:16px;font-weight:500;color:var(--vinho);
+  list-style:none;
+}
 .faq-q::-webkit-details-marker{display:none;}
 .faq-q::after{content:'+';font-size:22px;font-weight:300;color:var(--rose);transition:transform .3s;flex-shrink:0;margin-left:16px;}
 details[open] .faq-q::after{transform:rotate(45deg);}
 .faq-a{padding:0 0 20px;font-size:15px;line-height:1.75;color:var(--cinza-m);}
-.div-line{display:flex;align-items:center;gap:16px;margin:44px 0;}
-.dl{flex:1;height:1px;background:var(--creme2);}
-.dd{width:6px;height:6px;background:var(--rose);border-radius:50%;}
-.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:var(--vinho);padding:15px 24px;display:flex;align-items:center;justify-content:center;gap:24px;z-index:100;transform:translateY(100%);transition:transform .4s ease;box-shadow:0 -8px 32px rgba(0,0,0,.2);}
+
+/* ============================
+   STICKY BAR
+   ============================ */
+.sticky-bar{
+  position:fixed;bottom:0;left:0;right:0;
+  background:var(--vinho);
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:center;gap:24px;
+  z-index:100;
+  transform:translateY(100%);transition:transform .4s ease;
+  box-shadow:0 -8px 32px rgba(0,0,0,.2);
+}
 .sticky-bar.visible{transform:translateY(0);}
 .sticky-txt{font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:rgba(253,246,240,.8);}
-.btn-sticky{background:var(--rose);color:var(--branco);font-size:14px;font-weight:500;padding:11px 26px;border-radius:3px;text-decoration:none;white-space:nowrap;transition:background .2s;}
+.btn-sticky{
+  background:var(--rose);color:var(--branco);
+  font-size:14px;font-weight:600;
+  padding:12px 28px;border-radius:3px;
+  text-decoration:none;white-space:nowrap;
+  transition:background .2s;
+  letter-spacing:.3px;
+}
 .btn-sticky:hover{background:var(--rose-claro);}
 @media(max-width:600px){.sticky-txt{display:none;}}
-footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13px;color:rgba(253,246,240,.35);}
 
-/* ========================================================
-   ESTILOS DO MOCKUP 3D DA CAPA - CORRIGIDOS (SEM CAIXOTE)
-   ======================================================== */
-.mockup-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  opacity: 1; /* Removido animação de fade in que podia dar lag */
+/* ============================
+   WHATSAPP FLUTUANTE
+   ============================ */
+.wa-float{
+  position:fixed;
+  right:20px;
+  bottom:80px;
+  z-index:200;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
 }
-@media (max-width: 768px) {
-  .mockup-wrapper {
-    margin-top: -30px;
-    margin-bottom: -30px;
-    display: flex; /* Garante centralização */
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
+.wa-btn{
+  width:56px;height:56px;
+  border-radius:50%;
+  background:#25D366;
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+  box-shadow:0 6px 24px rgba(37,211,102,.45);
+  animation:waBounce 2.5s ease-in-out infinite;
+  transition:transform .2s;
 }
-.scene { position: relative; width: 520px; height: 420px; display: flex; align-items: center; justify-content: center; }
-
-/* REVISADO: REMOVIDO ::BEFORE (O CAIXOTE DE SOMBRA ESTÁTICA) */
-/* .scene::before { ... } */
-
-/* REVISADO: SOMBRA DO CHÃO MAIS REALISTA */
-.book-shadow {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 220px; /* Mais estreita */
-  height: 30px;
-  background: radial-gradient(ellipse, rgba(0,0,0,0.8) 0%, transparent 70%); /* Mais escura */
-  filter: blur(10px);
-}
-.book { position: relative; width: 240px; height: 340px; transform-style: preserve-3d; transform: perspective(1200px) rotateY(-18deg) rotateX(3deg); animation: float 4s ease-in-out infinite; }
-@keyframes float { 0%, 100% { transform: perspective(1200px) rotateY(-18deg) rotateX(3deg) translateY(0); } 50% { transform: perspective(1200px) rotateY(-18deg) rotateX(3deg) translateY(-10px); } }
-.book-front { position: absolute; width: 240px; height: 340px; background: linear-gradient(160deg, #8B2438 0%, #5C1522 40%, #3A0F18 100%); border-radius: 2px 8px 8px 2px; overflow: hidden; box-shadow: 4px 0 20px rgba(0,0,0,0.5), inset -2px 0 8px rgba(0,0,0,0.3); }
-.book-front::before { content: ''; position: absolute; width: 200px; height: 200px; border: 1px solid rgba(196,115,138,0.25); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-.book-front::after { content: ''; position: absolute; width: 150px; height: 150px; border: 1px solid rgba(196,115,138,0.18); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-.book-gloss { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 50%); border-radius: inherit; }
-.book-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 28px 20px; text-align: center; }
-.book-tag { font-size: 8px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(242,196,207,0.6); border: 1px solid rgba(196,115,138,0.3); padding: 4px 12px; border-radius: 20px; margin-bottom: 18px; }
-.book-title { font-family: Georgia, serif; font-size: 22px; font-weight: 700; color: #FFFFFF; line-height: 1.15; margin-bottom: 10px; letter-spacing: -0.3px; }
-.book-title em { font-style: italic; color: #F2C4CF; }
-.book-divider { width: 40px; height: 1px; background: rgba(196,115,138,0.5); margin: 12px auto; }
-.book-subtitle { font-size: 9px; font-style: italic; color: rgba(242,196,207,0.65); line-height: 1.6; letter-spacing: 0.3px; max-width: 160px; }
-.book-dot { width: 6px; height: 6px; background: #C4738A; border-radius: 50%; margin: 14px auto; box-shadow: 0 0 8px rgba(196,115,138,0.6); }
-.book-spine { position: absolute; left: -18px; top: 0; width: 20px; height: 340px; background: linear-gradient(to right, #2A0810, #4A1020); border-radius: 4px 0 0 4px; transform-origin: right center; transform: rotateY(-90deg) translateX(-10px); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.book-spine::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.4), transparent); }
-.spine-text { font-family: Georgia, serif; font-size: 8px; color: rgba(242,196,207,0.5); writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 1px; transform: rotate(180deg); }
-.book-back { position: absolute; width: 240px; height: 340px; background: linear-gradient(160deg, #3A0F18 0%, #2A0810 100%); border-radius: 2px 8px 8px 2px; transform: translateZ(-8px); box-shadow: -4px 4px 20px rgba(0,0,0,0.6); }
-.book-pages { position: absolute; right: -6px; top: 4px; width: 8px; height: 332px; background: repeating-linear-gradient( to bottom, #F2E4D8 0px, #F2E4D8 2px, #E8D0C4 2px, #E8D0C4 3px ); border-radius: 0 2px 2px 0; opacity: 0.8; }
-.book-reflection { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%) scaleY(-0.3) scaleX(0.95); transform-origin: top center; opacity: 0.2; filter: blur(3px); width: 240px; height: 340px; background: linear-gradient(160deg, #8B2438 0%, #5C1522 40%, #3A0F18 100%); border-radius: 2px 8px 8px 2px; }
-.particle { position: absolute; background: rgba(196,115,138,0.6); border-radius: 50%; animation: drift linear infinite; }
-@keyframes drift { from { opacity: 0; transform: translateY(0) translateX(0); } 10% { opacity: 1; } 90% { opacity: 1; } to { opacity: 0; transform: translateY(-120px) translateX(var(--dx, 20px)); } }
-
-/* =========================================
-   REVISADO: CORREÇÃO TÉCNICA DE SCALING MOBILE
-   ======================================== */
-@media (max-width: 768px) {
-    /* Em vez de redimensionar o contêiner (wrapper), 
-       redimensionamos apenas a cena inteira como uma unidade. */
-    .scene {
-        transform: scale(0.65); /* Redimensiona o livro final como uma unidade */
-        margin: 0 auto; /* Mantém centralizado */
-    }
+.wa-btn:hover{transform:scale(1.1);}
+.wa-btn svg{width:28px;height:28px;fill:#FFF;}
+.wa-label{
+  font-size:9px;font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:#25D366;
+  background:var(--branco);
+  padding:3px 8px;
+  border-radius:20px;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
+  white-space:nowrap;
 }
 
-/* =========================================
-   ESTILOS DO CTA PULSANTE
-   ========================================= */
-.cta-pulsante {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  margin: 24px auto 0;
-  text-align: center;
-  font-size: 22px !important;
-  font-weight: 700 !important;
-  padding: 26px 30px !important;
-  animation: pulse 2s infinite;
-}
-@media (max-width: 600px) {
-  .cta-pulsante { font-size: 18px !important; padding: 20px 20px !important; }
-}
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+/* ============================
+   RODAPÉ
+   ============================ */
+footer{
+  background:var(--vinho2);
+  text-align:center;
+  padding:40px 24px;
+  font-size:13px;
+  color:rgba(253,246,240,.35);
 }
 </style>
 </head>
 <body>
 
+<!-- ===========================
+     BARRA DE CREDENCIAL (TOPO)
+     =========================== -->
+<div class="credbar">
+  <div class="credbar-author">
+    <img class="credbar-photo" src="img-autora.png" alt="Camila Torres">
+    <div class="credbar-info">
+      <span class="credbar-name">Camila Torres</span>
+      <span class="credbar-role">Psicoterapeuta</span>
+    </div>
+  </div>
+  <div class="credbar-sep"></div>
+  <div class="credbar-social">
+    <strong>+3.000</strong> mulheres libertas da confusão mental
+  </div>
+</div>
+
+<!-- ===========================
+     HERO
+     =========================== -->
 <section class="hero">
   <div class="hero-left">
     <span class="hero-tag">Ebook Digital · Entenda a Mente Narcisista</span>
     <h1>Você Não Era <em>Louca.</em></h1>
     <p class="hero-sub">
       Você ainda ouve a voz dele na sua cabeça dizendo que você exagerou?<br>
-      <strong>Não exagerou. Está na hora de desmascarar o narcisista e saber a verdade.</strong>
+      <strong>Não exagerou. Está na hora de entender o que ele fez com você — e parar de pagar por isso.</strong>
     </p>
     <div class="hero-cta">
-      <span class="hero-social">+ de 3.000 mulheres já entenderam o que aconteceu com elas</span>
+      <div class="hero-proof">
+        <div class="hero-proof-avatars">
+          <span>F</span><span>C</span><span>J</span><span>+</span>
+        </div>
+        <p class="hero-proof-text"><strong>+3.000 mulheres</strong> já entenderam<br>o que aconteceu com elas</p>
+      </div>
       <a href="https://go.perfectpay.com.br/PPU38CQ9AK4" class="btn-p">Quero entender o que ele fez comigo — R$47</a>
+      <span class="hero-parcel">ou 2x de R$24 · sem juros</span>
       <span class="hero-nota">Acesso imediato · Leitura no celular, tablet ou computador</span>
     </div>
   </div>
@@ -274,9 +768,7 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
           <div class="book-reflection"></div>
           <div class="book-back"></div>
           <div class="book-pages"></div>
-          <div class="book-spine">
-            <span class="spine-text">Você Não Era Louca</span>
-          </div>
+          <div class="book-spine"><span class="spine-text">Você Não Era Louca</span></div>
           <div class="book-front">
             <div class="book-gloss"></div>
             <div class="book-content">
@@ -293,6 +785,9 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
   </div>
 </section>
 
+<!-- ===========================
+     RUPTURA / VALIDAÇÃO
+     =========================== -->
 <section class="ruptura">
   <div class="container">
     <p class="ruptura-q reveal">
@@ -309,6 +804,9 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
   </div>
 </section>
 
+<!-- ===========================
+     IDENTIFICAÇÃO
+     =========================== -->
 <section class="identificacao">
   <div class="container-wide">
     <div class="two-col">
@@ -334,6 +832,9 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
   </div>
 </section>
 
+<!-- ===========================
+     INFERNO (A HISTÓRIA)
+     =========================== -->
 <section class="inferno">
   <div class="container-wide" style="position:relative;z-index:2;">
     <div class="two-col two-col reverse">
@@ -354,6 +855,9 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
   </div>
 </section>
 
+<!-- ===========================
+     IDENTIDADE
+     =========================== -->
 <section class="identidade">
   <div class="container">
     <div class="reveal">
@@ -369,6 +873,9 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
   </div>
 </section>
 
+<!-- ===========================
+     PARA QUEM
+     =========================== -->
 <section class="paraquem">
   <div class="container-wide" style="position:relative;z-index:2;">
     <div class="two-col">
@@ -391,6 +898,9 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
   </div>
 </section>
 
+<!-- ===========================
+     BENEFÍCIOS
+     =========================== -->
 <section class="descubra">
   <div class="container">
     <div class="reveal">
@@ -407,10 +917,15 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
       <li class="reveal"><span class="chk"></span><span>Quem você é sem ele — e os exercícios práticos pra reencontrar essa mulher</span></li>
     </ul>
     <div class="div-line"><div class="dl"></div><div class="dd"></div><div class="dl"></div></div>
-    <p class="reveal" style="font-size:16px;color:var(--cinza-m);line-height:1.75;text-align:center;">O livro inclui ainda um <strong>quiz completo</strong> — "Seu ex era narcisista?" — com análise personalizada do seu resultado.</p>
+    <p class="reveal" style="font-size:16px;color:var(--cinza-m);line-height:1.75;text-align:center;">
+      O livro inclui ainda um <strong>quiz completo</strong> — "Seu ex era narcisista?" — com análise personalizada do seu resultado.
+    </p>
   </div>
 </section>
 
+<!-- ===========================
+     DEPOIMENTOS
+     =========================== -->
 <section class="depos">
   <div class="container-wide">
     <div style="text-align:center;max-width:560px;margin:0 auto 16px;" class="reveal">
@@ -423,6 +938,7 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
         <p class="depo-txt">"Eu passei 2 anos achando que o problema era eu. Que eu era instável, sensível demais, difícil de amar."</p>
         <p class="depo-depois">Depois</p>
         <p class="depo-txt">"Li de uma vez. Chorei em cada capítulo. Mas foi um choro de alívio — pela primeira vez senti que não estava louca."</p>
+        <p class="depo-stars">★★★★★</p>
         <p class="depo-autor">— Fernanda, 34 anos</p>
       </div>
       <div class="depo reveal" style="transition-delay:.15s">
@@ -430,6 +946,7 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
         <p class="depo-txt">"Ficava repassando cada discussão tentando entender onde tinha errado. Sempre achei que o problema era eu."</p>
         <p class="depo-depois">Depois</p>
         <p class="depo-txt">"O capítulo 5 mudou tudo. Eu parei de me culpar. Finalmente entendi que fui condicionada a me sentir assim."</p>
+        <p class="depo-stars">★★★★★</p>
         <p class="depo-autor">— Camila, 41 anos</p>
       </div>
       <div class="depo reveal" style="transition-delay:.3s">
@@ -437,38 +954,89 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
         <p class="depo-txt">"Tentei explicar pra minha família o que aconteceu. Ninguém entendia. Parecia loucura mesmo."</p>
         <p class="depo-depois">Depois</p>
         <p class="depo-txt">"Esse livro colocou palavras no que eu não conseguia explicar. Comprei achando que era mais do mesmo. Não é."</p>
+        <p class="depo-stars">★★★★★</p>
         <p class="depo-autor">— Juliana, 29 anos</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="oferta" id="oferta">
-  <div class="container">
-    <div class="oferta-box reveal">
-      <p class="eyebrow">Acesso imediato</p>
-      <h2 class="titulo" style="margin-bottom:36px;">Você Não Era Louca</h2>
-      <ul class="oferta-itens">
-        <li><span>✔</span><span>Ebook completo — 9 capítulos</span></li>
-        <li><span>✔</span><span>Quiz exclusivo "Seu ex era narcisista?" com análise personalizada</span></li>
-        <li><span>✔</span><span>Leitura no celular, tablet ou computador</span></li>
-        <li><span>✔</span><span>Acesso imediato após o pagamento</span></li>
-      </ul>
-      <p class="preco-de">De R$97</p>
-      <p class="preco-por">R$47</p>
-      <p class="preco-nota">pagamento único · sem assinatura</p>
-      <div class="urgencia">⏳ <strong>Preço promocional de lançamento.</strong> Pode voltar a R$97 a qualquer momento.</div>
-      
-      <a href="https://go.perfectpay.com.br/PPU38CQ9AK4" class="btn-p cta-pulsante">QUERO A VERDADE AGORA — R$47</a>
-      
-      <div class="pressao" style="margin-top: 24px;">
-        <p>"Ignorar isso agora é continuar presa nisso. Ou você entende o que aconteceu com você hoje — ou repete com o próximo."</p>
+<!-- ===========================
+     SEÇÃO DE AUTORIDADE (NOVA)
+     =========================== -->
+<section class="autoridade">
+  <div class="autor-grid">
+    <div class="autor-foto-col">
+      <img src="img-autora.png" alt="Camila Torres - Psicoterapeuta">
+    </div>
+    <div class="autor-texto-col reveal from-right">
+      <span class="autor-badge">Quem escreveu este livro</span>
+      <h2 class="autor-nome">Camila Torres</h2>
+      <p class="autor-titulo-cargo">Psicoterapeuta Especialista em Relacionamentos Abusivos</p>
+      <div class="autor-linha"></div>
+      <p class="autor-bio">
+        Há mais de <strong>8 anos</strong> acompanhando mulheres que duvidaram da própria sanidade dentro de relacionamentos com pessoas narcisistas.
+      </p>
+      <p class="autor-bio">
+        Escrevi este livro porque vi, repetidas vezes, mulheres inteligentes e amorosas saírem de relações destruídas — não pelo que ele fez, mas pelo que elas passaram a <strong>acreditar sobre si mesmas</strong>.
+      </p>
+      <p class="autor-bio">
+        Você não precisa de mais anos de terapia pra entender o que aconteceu. Você precisa das palavras certas. É isso que está nestas páginas.
+      </p>
+      <div class="autor-quote">
+        <p>"A cura começa quando você para de se perguntar o que fez de errado — e começa a entender o que fizeram com você."</p>
       </div>
-      <div class="garantia">🛡️ <strong>Garantia de 7 dias.</strong> Se você ler e sentir que não valeu, devolvo cada centavo. Sem perguntas.</div>
     </div>
   </div>
 </section>
 
+<!-- ===========================
+     OFERTA
+     =========================== -->
+<section class="oferta" id="oferta">
+  <div class="container">
+    <div class="oferta-box reveal">
+      <p class="eyebrow">Acesso imediato</p>
+      <h2 class="titulo" style="margin-bottom:32px;">Você Não Era Louca</h2>
+      <ul class="oferta-itens">
+        <li><span>✔</span><span>Ebook completo — 9 capítulos que vão nomear cada coisa que você viveu</span></li>
+        <li><span>✔</span><span>Quiz exclusivo "Seu ex era narcisista?" com análise personalizada</span></li>
+        <li><span>✔</span><span>Leitura no celular, tablet ou computador — funciona offline</span></li>
+        <li><span>✔</span><span>Acesso imediato após o pagamento</span></li>
+      </ul>
+
+      <!-- Contador de urgência -->
+      <div class="countdown-wrap">
+        <span class="countdown-label">⏳ Preço promocional encerra em:</span>
+        <div class="countdown-timer">
+          <div class="cd-block"><span class="cd-num" id="cdH">00</span><span class="cd-lbl">horas</span></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-block"><span class="cd-num" id="cdM">00</span><span class="cd-lbl">min</span></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-block"><span class="cd-num" id="cdS">00</span><span class="cd-lbl">seg</span></div>
+        </div>
+      </div>
+
+      <p class="preco-de">De R$97,00</p>
+      <p class="preco-por">R$47</p>
+      <p class="preco-parcel">ou 2x de R$24 sem juros</p>
+
+      <a href="https://go.perfectpay.com.br/PPU38CQ9AK4" class="btn-p btn-cta-main">
+        QUERO ENTENDER O QUE ACONTECEU COMIGO
+      </a>
+
+      <div class="pressao" style="margin-top:24px;">
+        <p>"Ignorar isso agora é continuar presa nisso. Ou você entende o que aconteceu com você hoje — ou repete com o próximo."</p>
+      </div>
+      <div class="garantia">🛡️ <strong>Garantia incondicional de 7 dias.</strong> Se ler e sentir que não valeu, devolvo cada centavo. Sem burocracia, sem perguntas.</div>
+      <p class="oferta-social">🔒 Pagamento 100% seguro · <strong>+3.000 mulheres</strong> já leram</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     FAQ
+     =========================== -->
 <section class="faq">
   <div class="container">
     <div class="reveal">
@@ -493,6 +1061,10 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
         <p class="faq-a">É natural sentir isso. Mas a confusão dói mais do que a clareza. Saber a verdade não vai aumentar sua dor — vai dar um nome pra ela. E nomear é o começo de curar.</p>
       </details>
       <details class="faq-item reveal">
+        <summary class="faq-q">Como funciona o parcelamento?</summary>
+        <p class="faq-a">Você pode parcelar em 2x de R$24 diretamente no cartão de crédito, sem juros. O acesso ao ebook é liberado imediatamente após a aprovação do pagamento.</p>
+      </details>
+      <details class="faq-item reveal">
         <summary class="faq-q">E se não gostar?</summary>
         <p class="faq-a">Você tem 7 dias de garantia total. Se ler e sentir que não valeu, basta entrar em contato e devolvemos cada centavo. Sem burocracia, sem perguntas.</p>
       </details>
@@ -505,22 +1077,67 @@ footer{background:var(--vinho2);text-align:center;padding:40px 24px;font-size:13
   <p style="margin-top:8px;">Este produto é 100% digital. Após o pagamento, o acesso é liberado imediatamente.</p>
 </footer>
 
+<!-- ===========================
+     STICKY BAR
+     =========================== -->
 <div class="sticky-bar" id="stickyBar">
   <span class="sticky-txt">Ou você entende hoje, ou repete amanhã.</span>
   <a href="https://go.perfectpay.com.br/PPU38CQ9AK4" class="btn-sticky">Quero a verdade — R$47</a>
 </div>
 
+<!-- ===========================
+     WHATSAPP FLUTUANTE
+     =========================== -->
+<div class="wa-float">
+  <a class="wa-btn" href="https://wa.me/5531999999999?text=Oi%20Camila%2C%20vi%20o%20livro%20Voc%C3%AA%20N%C3%A3o%20Era%20Louca%20e%20tenho%20uma%20d%C3%BAvida" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.528 5.845L0 24l6.335-1.508A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.88 0-3.645-.5-5.18-1.378l-.371-.22-3.761.895.943-3.655-.242-.386A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+    </svg>
+  </a>
+  <span class="wa-label">Dúvidas?</span>
+</div>
+
+<!-- ===========================
+     SCRIPTS
+     =========================== -->
 <script>
+// Sticky bar
 const sticky = document.getElementById('stickyBar');
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll',()=>{
   sticky.classList.toggle('visible', window.scrollY > 600);
 });
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('visible');
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Countdown — reinicia a cada sessão (urgência percebida)
+(function(){
+  const key = 'vnelcd';
+  let end = sessionStorage.getItem(key);
+  if(!end){
+    // 1h 47min aleatorio pra parecer organico
+    const ms = (1*3600 + 47*60 + Math.floor(Math.random()*59)) * 1000;
+    end = Date.now() + ms;
+    sessionStorage.setItem(key, end);
+  }
+  function tick(){
+    const diff = Math.max(0, end - Date.now());
+    const h = Math.floor(diff/3600000);
+    const m = Math.floor((diff%3600000)/60000);
+    const s = Math.floor((diff%60000)/1000);
+    document.getElementById('cdH').textContent = String(h).padStart(2,'0');
+    document.getElementById('cdM').textContent = String(m).padStart(2,'0');
+    document.getElementById('cdS').textContent = String(s).padStart(2,'0');
+    if(diff > 0) setTimeout(tick, 1000);
+  }
+  tick();
+})();
 </script>
 </body>
 </html>
