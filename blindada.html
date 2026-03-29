@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blindada — O Curso Completo | Camila Torres</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","3226221460872434");fbq("track","PageView");</script><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=3226221460872434&ev=PageView&noscript=1"/></noscript>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --vinho: #6B1F1F;
+    --vinho-escuro: #4a1515;
+    --vinho-claro: #8B3A3A;
+    --bege: #F5EFE6;
+    --bege-escuro: #E8DDD0;
+    --creme: #FBF7F2;
+    --texto: #2C1810;
+    --texto-suave: #5C4033;
+    --ouro: #C9A84C;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--creme);
+    color: var(--texto);
+    overflow-x: hidden;
+  }
+
+  /* BARRA TOPO */
+  .barra-topo {
+    background: var(--vinho-escuro);
+    color: #f5dada;
+    text-align: center;
+    padding: 11px 20px;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(170deg, #1a0a0a 0%, var(--vinho-escuro) 40%, var(--vinho) 100%);
+    padding: 72px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M40 40v-8h-2v8h-8v2h8v8h2v-8h8v-2h-8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    border: 1px solid rgba(201,168,76,0.5);
+    color: var(--ouro);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 7px 20px;
+    border-radius: 30px;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-nome-curso {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(56px, 12vw, 100px);
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-subtitulo-curso {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(14px, 2.5vw, 18px);
+    color: var(--ouro);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-linha {
+    width: 60px;
+    height: 1px;
+    background: rgba(201,168,76,0.4);
+    margin: 0 auto 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-descricao {
+    font-size: clamp(17px, 2.5vw, 21px);
+    color: #e8c4c4;
+    line-height: 1.7;
+    max-width: 620px;
+    margin: 0 auto 48px;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-descricao strong { color: #fff; font-weight: 700; }
+
+  .hero-autora {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 48px;
+  }
+
+  .autora-linha { width: 40px; height: 1px; background: rgba(255,255,255,0.2); }
+
+  .autora-nome {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .hero-cta {
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-principal {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--vinho-claro) 0%, var(--vinho-escuro) 100%);
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 20px 48px;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 1px solid rgba(201,168,76,0.3);
+    transition: all 0.3s;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+
+  .btn-principal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+    border-color: rgba(201,168,76,0.6);
+  }
+
+  .btn-principal small {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.75;
+    margin-top: 4px;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .hero-preco-resumo {
+    margin-top: 16px;
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-preco-resumo span {
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  /* SEÇÃO — VOCÊ SE RECONHECE */
+  .reconhece {
+    padding: 80px 20px;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--vinho);
+    margin-bottom: 16px;
+  }
+
+  .section-titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 5vw, 38px);
+    color: var(--vinho-escuro);
+    line-height: 1.25;
+    margin-bottom: 40px;
+  }
+
+  .section-titulo em { font-style: italic; }
+
+  .reconhece-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    text-align: left;
+  }
+
+  .reconhece-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    box-shadow: 0 2px 12px rgba(107,31,31,0.06);
+    border-left: 2px solid var(--vinho);
+  }
+
+  .reconhece-item span {
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .reconhece-item p {
+    font-size: 14px;
+    color: var(--texto-suave);
+    line-height: 1.5;
+  }
+
+  /* SEÇÃO — SOBRE O CURSO */
+  .sobre-curso {
+    background: var(--vinho-escuro);
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sobre-curso::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 100%, rgba(201,168,76,0.06) 0%, transparent 60%);
+  }
+
+  .sobre-curso .section-tag { color: var(--ouro); }
+
+  .sobre-curso .section-titulo { color: #fff; }
+  .sobre-curso .section-titulo em { color: #f5c6c6; }
+
+  .sobre-desc {
+    color: #e8c4c4;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto 48px;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* MÓDULOS */
+  .modulos-container {
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .modulo-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    text-align: left;
+    transition: background 0.2s;
+  }
+
+  .modulo-card:hover {
+    background: rgba(255,255,255,0.08);
+  }
+
+  .modulo-n {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: rgba(201,168,76,0.4);
+    font-weight: 700;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 36px;
+  }
+
+  .modulo-conteudo { flex: 1; }
+
+  .modulo-titulo-card {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .modulo-desc-card {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+  }
+
+  /* SEÇÃO — CAMILA */
+  .camila-section {
+    padding: 80px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .camila-foto-box {
+    position: relative;
+  }
+
+  .camila-foto-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(160deg, var(--bege-escuro) 0%, var(--bege) 100%);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: var(--texto-suave);
+    text-align: center;
+    padding: 20px;
+    line-height: 1.5;
+    border: 1px solid var(--bege-escuro);
+  }
+
+  .camila-foto-box::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border: 1px solid rgba(107,31,31,0.15);
+    border-radius: 6px;
+    z-index: -1;
+  }
+
+  .camila-texto .section-tag { text-align: left; display: block; }
+  .camila-texto .section-titulo { text-align: left; }
+
+  .camila-bio {
+    color: var(--texto-suave);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .camila-citacao {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--vinho);
+    line-height: 1.6;
+    padding-left: 20px;
+    border-left: 2px solid var(--vinho);
+  }
+
+  /* DEPOIMENTOS */
+  .depoimentos {
+    background: var(--bege);
+    padding: 80px 20px;
+  }
+
+  .depoimentos-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .depo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .depo-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 20px;
+    text-align: left;
+    box-shadow: 0 4px 16px rgba(107,31,31,0.07);
+  }
+
+  .depo-estrelas {
+    color: var(--ouro);
+    font-size: 13px;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+  }
+
+  .depo-texto-card {
+    font-size: 14px;
+    color: var(--texto-suave);
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .depo-nome {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--vinho);
+  }
+
+  /* INVESTIMENTO */
+  .investimento {
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .preco-box {
+    max-width: 480px;
+    margin: 40px auto 0;
+    background: #fff;
+    border-radius: 16px;
+    padding: 48px 40px;
+    box-shadow: 0 12px 48px rgba(107,31,31,0.1);
+    border: 1px solid var(--bege-escuro);
+  }
+
+  .preco-curso-nome {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--vinho-escuro);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .inclusos {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 32px;
+    text-align: left;
+  }
+
+  .incluso-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--texto-suave);
+  }
+
+  .incluso-check {
+    color: var(--vinho);
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .preco-de {
+    font-size: 14px;
+    color: #bbb;
+    text-decoration: line-through;
+    margin-bottom: 4px;
+  }
+
+  .preco-valor {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    color: var(--vinho);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .preco-parcelado {
+    font-size: 14px;
+    color: var(--texto-suave);
+    margin-bottom: 32px;
+  }
+
+  .btn-comprar {
+    display: block;
+    width: 100%;
+    background: linear-gradient(135deg, var(--vinho) 0%, var(--vinho-escuro) 100%);
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 20px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s;
+    box-shadow: 0 6px 24px rgba(107,31,31,0.3);
+    margin-bottom: 16px;
+  }
+
+  .btn-comprar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(107,31,31,0.4);
+  }
+
+  .btn-comprar small {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.8;
+    margin-top: 4px;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .garantia-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bege);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-top: 20px;
+    text-align: left;
+  }
+
+  .garantia-box span { font-size: 24px; flex-shrink: 0; }
+  .garantia-box p { font-size: 13px; color: var(--texto-suave); line-height: 1.5; }
+  .garantia-box strong { color: var(--texto); }
+
+  /* FAQ */
+  .faq {
+    background: var(--bege);
+    padding: 80px 20px;
+  }
+
+  .faq-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .faq-lista {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+  }
+
+  .faq-item {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(107,31,31,0.05);
+  }
+
+  .faq-pergunta {
+    padding: 18px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--texto);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    user-select: none;
+  }
+
+  .faq-pergunta::after {
+    content: '+';
+    font-size: 20px;
+    color: var(--vinho);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+
+  .faq-item.aberto .faq-pergunta::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-resposta {
+    display: none;
+    padding: 0 20px 18px;
+    font-size: 14px;
+    color: var(--texto-suave);
+    line-height: 1.7;
+    border-top: 1px solid var(--bege-escuro);
+    padding-top: 16px;
+  }
+
+  .faq-item.aberto .faq-resposta { display: block; }
+
+  /* CTA FINAL */
+  .cta-final {
+    background: linear-gradient(160deg, #1a0a0a 0%, var(--vinho-escuro) 100%);
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .cta-final h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 44px);
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .cta-final h2 em { font-style: italic; color: #f5c6c6; }
+
+  .cta-final p {
+    color: #e8c4c4;
+    font-size: 17px;
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 28px 20px;
+    font-size: 12px;
+    color: #aaa;
+    border-top: 1px solid var(--bege-escuro);
+    line-height: 1.8;
+  }
+
+  /* TIMER */
+  .timer-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 24px;
+  }
+
+  .timer-bloco { text-align: center; }
+
+  .timer-num {
+    background: var(--vinho-escuro);
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    width: 58px;
+    height: 58px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .timer-label {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    margin-top: 4px;
+  }
+
+  .timer-sep {
+    font-size: 24px;
+    color: var(--vinho);
+    font-weight: 700;
+    padding-bottom: 16px;
+  }
+
+  @media (max-width: 640px) {
+    .camila-section { grid-template-columns: 1fr; gap: 32px; }
+    .camila-foto-box { max-width: 280px; margin: 0 auto; }
+    .depo-grid { grid-template-columns: 1fr; }
+    .reconhece-grid { grid-template-columns: 1fr; }
+    .preco-box { padding: 32px 24px; }
+    .preco-valor { font-size: 52px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="barra-topo">⚡ Acesso imediato após a compra · Garantia incondicional de 7 dias</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Camila Torres · Psicoterapeuta</div>
+  <div class="hero-nome-curso">Blindada</div>
+  <div class="hero-subtitulo-curso">O Curso Completo</div>
+  <div class="hero-linha"></div>
+  <p class="hero-descricao">
+    8 módulos em vídeo para <strong>identificar, se libertar e nunca mais se prender</strong> a um relacionamento com narcisista.
+  </p>
+  <div class="hero-autora">
+    <div class="autora-linha"></div>
+    <div class="autora-nome">Camila Torres · Psicoterapeuta</div>
+    <div class="autora-linha"></div>
+  </div>
+  <div class="hero-cta">
+    <a href="https://go.perfectpay.com.br/PPU38CQ9KJI" class="btn-principal">
+      Quero me Blindar agora
+      <small>Acesso imediato · Garantia de 7 dias</small>
+    </a>
+  </div>
+  <div class="hero-preco-resumo">Por apenas <span>R$97</span> · ou 12x de R$9,42</div>
+</div>
+
+<!-- VOCÊ SE RECONHECE -->
+<div class="reconhece">
+  <span class="section-tag">Esse curso é pra você que…</span>
+  <h2 class="section-titulo">Ainda carrega o peso<br><em>de um amor que doeu demais.</em></h2>
+  <div class="reconhece-grid">
+    <div class="reconhece-item"><span>🔄</span><p>Já tentou sair e voltou — e não entende por quê</p></div>
+    <div class="reconhece-item"><span>🌀</span><p>Sente uma saudade que não faz sentido de alguém que te fez mal</p></div>
+    <div class="reconhece-item"><span>💭</span><p>Ainda ouve a voz dele dizendo que você exagerou</p></div>
+    <div class="reconhece-item"><span>😶</span><p>Não se reconhece mais — perdeu quem era dentro desse relacionamento</p></div>
+    <div class="reconhece-item"><span>😰</span><p>Tem medo de repetir o mesmo padrão no próximo relacionamento</p></div>
+    <div class="reconhece-item"><span>❓</span><p>Quer entender o que aconteceu — de verdade, com profundidade</p></div>
+  </div>
+</div>
+
+<!-- SOBRE O CURSO -->
+<div class="sobre-curso">
+  <span class="section-tag">O que você vai aprender</span>
+  <h2 class="section-titulo" style="max-width:600px;margin:0 auto 16px"><em>Cada módulo</em> é um passo<br>de volta pra si mesma.</h2>
+  <p class="sobre-desc">Do entendimento à libertação real — sem pular etapas, sem respostas rasas. A Camila te guia por cada fase do processo.</p>
+
+  <div class="modulos-container">
+    <div class="modulo-card">
+      <div class="modulo-n">01</div>
+      <div class="modulo-conteudo">
+        <div class="modulo-titulo-card">Como Identificar um Narcisista</div>
+        <div class="modulo-desc-card">Os sinais que estavam lá desde o início — e o que o love bombing, gaslighting e o ciclo de descarte revelam</div>
+      </div>
+    </div>
+    <div class="modulo-card">
+      <div class="modulo-n">02</div>
+      <div class="modulo-conteudo">
+        <div class="modulo-titulo-card">Os Ciclos do Relacionamento Tóxico</div>
+        <div class="modulo-desc-card">A neurologia por trás do ciclo que te manteve presa — e por que a saída não é só força de vontade</div>
+      </div>
+    </div>
+    <div class="modulo-card">
+      <div class="modulo-n">03</div>
+      <div class="modulo-conteudo">
+        <div class="modulo-titulo-card">Por Que Você Ficou</div>
+        <div class="modulo-desc-card">Não foi fraqueza. Foi esperança, amor real e padrões aprendidos muito antes dele. A culpa sai aqui.</div>
+      </div>
+    </div>
+    <div class="modulo-card">
+      <div class="modulo-n">04</div>
+      <div class="modulo-conteudo">
+        <div class="modulo-titulo-card">Trauma Bonding — O Vício Emocional</div>
+        <div class="modulo-desc-card">Por que a saudade dói no corpo e como romper o vínculo que confunde amor com sofrimento</div>
+      </div>
+    </div>
+    <div class="modulo-card">
+      <div class="modulo-n">05</div>
+      <div class="modulo-conteudo">
+        <div class="modulo-titulo-card">Como Sair Sem Culpa</div>
+        <div class="modulo-desc-card">A culpa foi plantada em você. Como identificá-la, o que é contato zero e como se dar permissão pra ir embora</div>
+      </div>
+    </div>
+    <div class="modulo-card">
+      <div class="modulo-n">06</div>
+      <div class="modulo-conteudo">
+        <div class="modulo-titulo-card">Reconstruindo a Autoestima</div>
+        <div class="modulo-desc-card">A mulher que você era não foi destruída — foi silenciada. Como recuperar a confiança em si mesma</div>
+      </div>
+    </div>
+    <div class="modulo-card">
+      <div class="modulo-n">07</div>
+      <div class="modulo-conteudo">
+        <div class="modulo-titulo-card">Como Não Atrair Esse Padrão de Novo</div>
+        <div class="modulo-desc-card">Padrões não são destino — são neurologia. Como reconhecer red flags cedo e usar seus limites como filtro</div>
+      </div>
+    </div>
+    <div class="modulo-card">
+      <div class="modulo-n">08</div>
+      <div class="modulo-conteudo">
+        <div class="modulo-titulo-card">Relacionamentos Saudáveis — Como Reconhecer</div>
+        <div class="modulo-desc-card">Como é amor de verdade — e por que pode parecer estranho no começo depois de tudo que você viveu</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CAMILA -->
+<div class="camila-section">
+  <div class="camila-foto-box">
+    <img src="img-camila-curso.png" alt="Camila Torres — Psicoterapeuta" style="width:100%;border-radius:4px;display:block;">
+  </div>
+  <div class="camila-texto">
+    <span class="section-tag">Quem vai te guiar</span>
+    <h2 class="section-titulo">Camila Torres<br><em>Psicoterapeuta</em></h2>
+    <p class="camila-bio">Há mais de 8 anos acompanhando mulheres que duvidaram da própria sanidade dentro de relacionamentos com pessoas narcisistas.<br><br>Criou o curso Blindada porque viu, repetidas vezes, mulheres inteligentes e amorosas saírem de relações destruídas — não pelo que ele fez, mas pelo que elas passaram a acreditar sobre si mesmas.</p>
+    <p class="camila-citacao">"A cura começa quando você para de se perguntar o que fez de errado — e começa a entender o que fizeram com você."</p>
+  </div>
+</div>
+
+<!-- DEPOIMENTOS -->
+<div class="depoimentos">
+  <div class="depoimentos-inner">
+    <span class="section-tag">O que estão dizendo</span>
+    <h2 class="section-titulo">Antes e depois<br><em>do curso.</em></h2>
+    <div class="depo-grid">
+      <div class="depo-card">
+        <div class="depo-estrelas">★★★★★</div>
+        <p class="depo-texto-card">"O módulo 3 respondeu algo que nenhuma terapia tinha conseguido ainda. Eu parei de me culpar pela primeira vez."</p>
+        <div class="depo-nome">Mariana, 38 anos</div>
+      </div>
+      <div class="depo-card">
+        <div class="depo-estrelas">★★★★★</div>
+        <p class="depo-texto-card">"Assisti tudo em dois dias. Não conseguia parar. É como se a Camila estivesse descrevendo a minha vida — e mostrando a saída."</p>
+        <div class="depo-nome">Patrícia, 31 anos</div>
+      </div>
+      <div class="depo-card">
+        <div class="depo-estrelas">★★★★★</div>
+        <p class="depo-texto-card">"Finalmente entendi por que fiquei tanto tempo. Não era fraqueza. Era exatamente o que a Camila explica no módulo 4."</p>
+        <div class="depo-nome">Renata, 44 anos</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INVESTIMENTO -->
+<div class="investimento">
+  <span class="section-tag">Investimento</span>
+  <h2 class="section-titulo">Tudo que você precisa<br><em>pra se libertar de vez.</em></h2>
+
+  <div class="preco-box">
+    <div class="preco-curso-nome">Blindada — O Curso Completo</div>
+
+    <ul class="inclusos">
+      <li class="incluso-item"><span class="incluso-check">✦</span> 8 módulos em vídeo com a Camila Torres</li>
+      <li class="incluso-item"><span class="incluso-check">✦</span> Acesso vitalício — assista no seu ritmo</li>
+      <li class="incluso-item"><span class="incluso-check">✦</span> Funciona no celular, tablet ou computador</li>
+      <li class="incluso-item"><span class="incluso-check">✦</span> Acesso imediato após a compra</li>
+    </ul>
+
+    <div class="timer-wrapper">
+      <div class="timer-bloco">
+        <div class="timer-num" id="min2">15</div>
+        <div class="timer-label">min</div>
+      </div>
+      <div class="timer-sep">:</div>
+      <div class="timer-bloco">
+        <div class="timer-num" id="seg2">00</div>
+        <div class="timer-label">seg</div>
+      </div>
+    </div>
+
+    <div class="preco-de">De R$197,00</div>
+    <div class="preco-valor">R$97</div>
+    <div class="preco-parcelado">ou 12x de R$9,42 sem juros</div>
+
+    <a href="https://go.perfectpay.com.br/PPU38CQ9KJI" class="btn-comprar">
+      Quero me Blindar agora
+      <small>Acesso imediato · Garantia de 7 dias</small>
+    </a>
+
+    <div class="garantia-box">
+      <span>🛡️</span>
+      <p><strong>Garantia incondicional de 7 dias.</strong> Se assistir e sentir que não valeu, devolvo cada centavo. Sem burocracia, sem perguntas.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq">
+  <div class="faq-inner">
+    <span class="section-tag">Dúvidas frequentes</span>
+    <h2 class="section-titulo">Ainda com<br><em>alguma dúvida?</em></h2>
+    <div class="faq-lista">
+      <div class="faq-item">
+        <div class="faq-pergunta" onclick="toggleFaq(this)">Como vou acessar o curso?</div>
+        <div class="faq-resposta">Após o pagamento aprovado, você recebe um email com o link de acesso imediato. Funciona em qualquer celular, tablet ou computador.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta" onclick="toggleFaq(this)">Precisa ter internet pra assistir?</div>
+        <div class="faq-resposta">É necessário internet para assistir os vídeos. Mas o acesso é vitalício — você assiste quando e quantas vezes quiser, no seu ritmo.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta" onclick="toggleFaq(this)">E se eu ainda estiver no relacionamento?</div>
+        <div class="faq-resposta">O curso foi feito tanto pra quem já saiu quanto pra quem ainda está dentro e sente que algo está errado. Entender o que está acontecendo é o primeiro passo pra qualquer decisão.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta" onclick="toggleFaq(this)">Como funciona a garantia?</div>
+        <div class="faq-resposta">Você tem 7 dias de garantia total. Se assistir e sentir que não valeu, basta entrar em contato e devolvemos cada centavo. Sem burocracia, sem perguntas.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta" onclick="toggleFaq(this)">Posso parcelar?</div>
+        <div class="faq-resposta">Sim. Você pode parcelar em até 12x de R$9,42 no cartão de crédito, sem juros. O acesso é liberado imediatamente após a aprovação.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<div class="cta-final">
+  <h2>O próximo capítulo<br><em>começa aqui.</em></h2>
+  <p>Você sobreviveu. Agora é hora de viver — consciente, inteira e livre.</p>
+  <a href="https://go.perfectpay.com.br/PPU38CQ9KJI" class="btn-principal">
+    Quero me Blindar agora
+    <small>R$97 · Acesso imediato · Garantia de 7 dias</small>
+  </a>
+</div>
+
+<footer>
+  © 2025 Blindada · Camila Torres · Todos os direitos reservados<br>
+  Este produto é 100% digital. Acesso liberado imediatamente após o pagamento.<br>
+  Dúvidas? Entre em contato pelo Instagram.
+</footer>
+
+<script>
+  // Timer
+  let total = 15 * 60;
+  const m = document.getElementById('min2');
+  const s = document.getElementById('seg2');
+  const tick = () => {
+    if (total <= 0) { m.textContent = '00'; s.textContent = '00'; return; }
+    total--;
+    m.textContent = String(Math.floor(total / 60)).padStart(2, '0');
+    s.textContent = String(total % 60).padStart(2, '0');
+    setTimeout(tick, 1000);
+  };
+  tick();
+
+  // FAQ
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    item.classList.toggle('aberto');
+  }
+</script>
+
+</body>
+</html>
